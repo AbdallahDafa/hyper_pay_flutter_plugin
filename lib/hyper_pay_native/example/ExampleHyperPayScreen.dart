@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:tuxedo/core/hyper_pay_native/controller/channel/hyperpay_channel_stream_controller.dart';
-import 'package:tuxedo/core/hyper_pay_native/model/request/hyperpay_channel_request.dart';
-import 'package:tuxedo/core/toast/tools_toast.dart';
-import 'package:tuxedo/customWidget/button/ButtonApp.dart';
-import 'package:tuxedo/customWidget/page/ScaffoldApp.dart';
-import 'package:tuxedo/hyperpay_payment/constants/payment_constants.dart';
+import 'package:hyper_pay/helper/dialog/MessageDialog.dart';
+import 'package:hyper_pay/hyper_pay_native/controller/channel/hyperpay_channel_stream_controller.dart';
+import 'package:hyper_pay/hyper_pay_native/model/request/hyperpay_channel_request.dart';
+
 
 class ExampleHyperPayScreen extends StatefulWidget {
   const ExampleHyperPayScreen({super.key});
@@ -16,13 +14,15 @@ class ExampleHyperPayScreen extends StatefulWidget {
 class _ExampleHyperPayScreenState extends State<ExampleHyperPayScreen> {
   @override
   Widget build(BuildContext context) {
-    return ScaffoldApp(
+    return Scaffold(
         backgroundColor: Colors.white,
         body: Center(
           child: Column(children: [
 
             SizedBox( height: 100 ,),
-            ButtonApp( "Pay Visa",  () async {
+            GestureDetector(
+                child:  Text("Pay Visa"),
+                    onTap: () async {
               await visaPayment();
             })
 
@@ -40,21 +40,24 @@ class _ExampleHyperPayScreenState extends State<ExampleHyperPayScreen> {
     /// listener to result
     await HyperpayChannelStreamController.setupListenerFromNative(
         callback: ( result ) {
-          ToolsToast.i(context,  result);
+
           if( result.toString() == "success" ) {
               /// check status call your server side
+            MessageDialog.show(context,  "Payment Result",  "check status by call your server side using same checkoutID you create");
+
           } else {
             ///TODO failed payment
+            MessageDialog.show(context,  "Payment Result",  "failed payment");
           }
         }
     );
 
     /// init request channel
     var channelRequest = HyperpayChannelRequest ( );
-    channelRequest.shopperResultUrl = HyperPayPaymentConstants.shopperResultUrl;
-    channelRequest.merchantId = HyperPayPaymentConstants.merchantId;
+    channelRequest.shopperResultUrl =   "com.tuxedo.dafa.payment";  //contact hyperpay support to get merchantId
+    channelRequest.merchantId =  "merchant.com.tuxedo.dafa";  //contact hyperpay support to get merchantId
     channelRequest.brandName = "VISA";
-    channelRequest.checkoutId = "37492FDAA1428216F515A6842F68E295.prod01-vm-tx16"; //get from your server side
+    channelRequest.checkoutId = "C9AEE314FC899D90B5D27C837EDC5BE3.prod01-vm-tx12"; //get from your server side
     channelRequest.amount =  1;
     channelRequest.isTest = false ; //false means it's live
     await HyperpayChannelStreamController.sendDataToNative(channelRequest);

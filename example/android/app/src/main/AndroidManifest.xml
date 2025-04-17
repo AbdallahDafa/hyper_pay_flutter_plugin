@@ -1,8 +1,29 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:label="hyper_pay_example"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+
+
+        <!--    ........................ < start :  hyper pay native android sdk serucre -->
+
+        <receiver android:name=".hyperpay.receiver.CheckoutBroadcastReceiver"
+            android:exported="false"/>
+
+
+        <activity
+            android:name=".hyperpay.HyperPayIntegrationActivity"
+            android:theme="@style/MakeMyActivityTransparent"
+            android:exported="false">
+        </activity>
+
+        <!--    ........................  end>  -->
+
+
         <activity
             android:name=".MainActivity"
             android:exported="true"

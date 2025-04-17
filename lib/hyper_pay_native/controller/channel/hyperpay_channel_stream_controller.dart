@@ -1,6 +1,8 @@
 import 'package:flutter/services.dart';
-import 'package:tuxedo/core/hyper_pay_native/model/request/hyperpay_channel_request.dart';
-import 'package:tuxedo/core/log/Log.dart';
+import 'package:hyper_pay/helper/log/Log.dart';
+import 'package:hyper_pay/hyper_pay_native/model/request/hyperpay_channel_request.dart';
+
+
 
 typedef HyperPayChannelListenerResult = Function( dynamic result );
 
