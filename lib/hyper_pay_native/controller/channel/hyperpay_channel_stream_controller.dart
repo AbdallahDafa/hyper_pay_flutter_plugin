@@ -1,7 +1,7 @@
 import 'package:flutter/services.dart';
-import 'package:hyper_pay/helper/log/hyperpay_log.dart';
+import 'package:hyper_pay_payment/helper/log/hyperpay_log.dart';
 
-import 'package:hyper_pay/hyper_pay_native/model/request/hyperpay_channel_request.dart';
+import 'package:hyper_pay_payment/hyper_pay_native/model/request/hyperpay_channel_request.dart';
 
 
 

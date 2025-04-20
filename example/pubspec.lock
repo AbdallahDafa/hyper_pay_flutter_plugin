@@ -98,13 +98,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  hyper_pay:
+  hyper_pay_payment:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "0.0.1"
+    version: "1.0.0"
   integration_test:
     dependency: "direct dev"
     description: flutter

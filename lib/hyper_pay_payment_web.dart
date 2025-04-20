@@ -6,15 +6,15 @@
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:web/web.dart' as web;
 
-import 'hyper_pay_platform_interface.dart';
+import 'hyper_pay_payment_platform_interface.dart';
 
 /// A web implementation of the HyperPayPlatform of the HyperPay plugin.
-class HyperPayWeb extends HyperPayPlatform {
+class HyperPayWeb extends HyperPayPaymentPlatform {
   /// Constructs a HyperPayWeb
   HyperPayWeb();
 
   static void registerWith(Registrar registrar) {
-    HyperPayPlatform.instance = HyperPayWeb();
+    HyperPayPaymentPlatform.instance = HyperPayWeb();
   }
 
   /// Returns a [String] containing the version of the platform.

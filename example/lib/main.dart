@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 import 'package:flutter/services.dart';
-import 'package:hyper_pay/hyper_pay.dart';
+// import 'package:hyper_pay_payment/hyper_pay_native/model/request/hyperpay_channel_request.dart';
+import 'package:hyper_pay_payment/hyper_pay_payment.dart';
+import 'package:hyper_pay_payment/hyper_pay_payment_platform_interface.dart';
 
-
-import 'package:hyper_pay/hyper_pay_platform_interface.dart';
+// import 'package:hyper_pay/hyper_pay_native/model/request/hyperpay_channel_request.dart';
+// import 'package:hyper_pay/hyper_pay_platform_interface.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +22,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   String _platformVersion = 'Unknown';
-  final _hyperPayPlugin = HyperPay();
+  final _hyperPayPlugin = HyperPayPayment();
 
   bool? isPaymentSuccess = null  ;
 
@@ -77,7 +79,7 @@ class _MyAppState extends State<MyApp> {
                 ),
                 onTap: () async {
 
-                  await HyperPayPlatform.instance.fromFlutter();
+                  await HyperPayPaymentPlatform.instance.fromFlutter();
                 }),
             SizedBox( height: 20 ,),
             GestureDetector(
@@ -94,11 +96,11 @@ class _MyAppState extends State<MyApp> {
                 channelRequest.shopperResultUrl =   "com.tuxedo.dafa.payment";  //contact hyperpay support to get merchantId
                 channelRequest.merchantId =  "merchant.com.tuxedo.dafa";  //contact hyperpay support to get merchantId
                 channelRequest.brandName = "VISA";
-                channelRequest.checkoutId = "BB6A3DCD12AC43DAA236FA5D00BD08F9.prod01-vm-tx02"; //get from your server side
+                channelRequest.checkoutId = "CE3AC6C6D0CB1999E0BA2FBBF3B1EFD7.prod01-vm-tx07"; //get from your server side
                 channelRequest.amount =  1;
                 channelRequest.isTest = false ; //false means it's live
 
-                await HyperPay.newPayment(channelRequest : channelRequest, onComplete: (bool isSuccess) {
+                await HyperPayPayment.newPayment(channelRequest : channelRequest, onComplete: (bool isSuccess) {
 
                   setState(() {
                     isPaymentSuccess = isSuccess;
@@ -112,7 +114,7 @@ class _MyAppState extends State<MyApp> {
             /// status
             if( isPaymentSuccess != null && isPaymentSuccess == true )Text( "Payment success, need to check status in your server side" ,
               style: TextStyle( color: Colors.green),),
-            if( isPaymentSuccess != null && isPaymentSuccess == false )Text( "Payment failed", style: TextStyle( color: Colors.green),)
+            if( isPaymentSuccess != null && isPaymentSuccess == false )Text( "Payment failed", style: TextStyle( color: Colors.red),)
 
 
           ],),

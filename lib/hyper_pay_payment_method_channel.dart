@@ -1,11 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:hyper_pay/helper/log/hyperpay_log.dart';
+import 'package:hyper_pay_payment/helper/log/hyperpay_log.dart';
 
-import 'hyper_pay_platform_interface.dart';
+import 'hyper_pay_payment_platform_interface.dart';
+
 
 /// An implementation of [HyperPayPlatform] that uses method channels.
-class MethodChannelHyperPay extends HyperPayPlatform {
+class MethodChannelHyperPay extends HyperPayPaymentPlatform {
   /// The method channel used to interact with the native platform.
   @visibleForTesting
   final methodChannel = const MethodChannel('hyper_pay');
@@ -19,9 +20,7 @@ class MethodChannelHyperPay extends HyperPayPlatform {
   @override
   Future fromFlutter() async {
     HyperPayLog.i("abdo - MethodChannelHyperPay - fromFlutter()");
-    final res = await methodChannel.invokeMethod('fromFlutter');
-
-
+    await methodChannel.invokeMethod('fromFlutter');
   }
 
 

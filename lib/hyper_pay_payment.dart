@@ -1,22 +1,21 @@
 
-import 'package:hyper_pay/hyper_pay_native/controller/channel/hyperpay_channel_stream_controller.dart';
-export 'package:hyper_pay/hyper_pay_native/controller/channel/hyperpay_channel_stream_controller.dart';
-import 'package:hyper_pay/hyper_pay_native/model/request/hyperpay_channel_request.dart';
-export 'package:hyper_pay/hyper_pay_native/model/request/hyperpay_channel_request.dart';
+import 'package:hyper_pay_payment/hyper_pay_native/controller/channel/hyperpay_channel_stream_controller.dart';
+export 'package:hyper_pay_payment/hyper_pay_native/controller/channel/hyperpay_channel_stream_controller.dart';
+import 'package:hyper_pay_payment/hyper_pay_native/model/request/hyperpay_channel_request.dart';
+import 'package:hyper_pay_payment/hyper_pay_payment_platform_interface.dart';
+export 'package:hyper_pay_payment/hyper_pay_native/model/request/hyperpay_channel_request.dart';
 
 
 
-import 'hyper_pay_platform_interface.dart';
 
-
-class HyperPay {
+class HyperPayPayment {
 
   late HyperpayChannelStreamController cont;
   late HyperpayChannelRequest req ;
 
   /// test method
   Future<String?> getPlatformVersion() {
-    return HyperPayPlatform.instance.getPlatformVersion();
+    return HyperPayPaymentPlatform.instance.getPlatformVersion();
   }
 
 

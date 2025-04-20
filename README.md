@@ -25,7 +25,7 @@
                 channelRequest.amount =  1;
                 channelRequest.isTest = false ; //false means it's live
 
-                await HyperPay.newPayment(channelRequest : channelRequest, onComplete: (bool isSuccess) {
+                await HyperPayPayment.newPayment(channelRequest : channelRequest, onComplete: (bool isSuccess) {
 
                   setState(() {
                     isPaymentSuccess = isSuccess;
@@ -67,7 +67,7 @@
                 channelRequest.amount =  1;
                 channelRequest.isTest = false ; //false means it's live
 
-                await HyperPay.newPayment(channelRequest : channelRequest, onComplete: (bool isSuccess) {
+                await HyperPayPayment.newPayment(channelRequest : channelRequest, onComplete: (bool isSuccess) {
 
                   setState(() {
                     isPaymentSuccess = isSuccess;
