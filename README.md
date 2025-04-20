@@ -1,10 +1,25 @@
 # hyper_pay_flutter_plugin
 
+
+
+-----
+
+-----
+
+
 ## Documenation 
-* see [HyperPay Integration Guide](https://www.hyperpay.com/integration-guide/)
+
+[HyperPay Integration Guide](https://www.hyperpay.com/integration-guide/)
+
+
+-----
+
+-----
+
 
 
 ## Create Payment Type :  VISA/MASTER/MADA
+
 
 ### First Step : Generate Checkout ID 
 
@@ -45,7 +60,9 @@
 
 -----
 
+
 ## Create Payment Type Apple Pay / Hyperpay :
+
 
 ### First Config Apple Pay:
 
@@ -84,6 +101,7 @@
 -----
 
 -----
+
 
 ## MIT License
 
