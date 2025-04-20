@@ -98,7 +98,7 @@ class _MyAppState extends State<MyApp> {
                 channelRequest.amount =  1;
                 channelRequest.isTest = false ; //false means it's live
 
-                await HyperPay.newPayment(channelRequest : channelRequest, onComplete: (isSuccess) {
+                await HyperPay.newPayment(channelRequest : channelRequest, onComplete: (bool isSuccess) {
 
                   setState(() {
                     isPaymentSuccess = isSuccess;
