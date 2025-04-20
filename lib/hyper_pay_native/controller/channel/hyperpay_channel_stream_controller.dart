@@ -1,5 +1,6 @@
 import 'package:flutter/services.dart';
-import 'package:hyper_pay/helper/log/Log.dart';
+import 'package:hyper_pay/helper/log/hyperpay_log.dart';
+
 import 'package:hyper_pay/hyper_pay_native/model/request/hyperpay_channel_request.dart';
 
 
@@ -15,7 +16,7 @@ class HyperpayChannelStreamController {
 
   static Future setupListenerFromNative( {required HyperPayChannelListenerResult callback}) async {
     _getDataStream().listen((event) {
-      Log.i("abdo hyperpay - setupListenerFromNative()  from native: $event");
+      HyperPayLog.i("abdo hyperpay - setupListenerFromNative()  from native: $event");
       callback(event );
 
     });
@@ -23,7 +24,7 @@ class HyperpayChannelStreamController {
 
 
   static Future sendDataToNative( HyperpayChannelRequest request ) async {
-    Log.i("abdo hyperpay - sendDataToNative()  request: ${request.toJson()}");
+    HyperPayLog.i("abdo hyperpay - sendDataToNative()  request: ${request.toJson()}");
     //jsonEncode(json)
     await _methodChannelSender.invokeMethod('fromFlutter', request.toJson()  );
   }

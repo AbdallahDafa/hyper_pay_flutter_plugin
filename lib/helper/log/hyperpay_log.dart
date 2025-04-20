@@ -1,8 +1,6 @@
 
-
-import 'LogDeveloperInfo.dart';
-
-class Log {
+ 
+class HyperPayLog {
 
 
   /**
@@ -15,15 +13,15 @@ class Log {
 
   /// print message
   static i ( String msg ) {
-    String msgFinal =  LogDeveloperInfo.appId + " : " +  _getTimeOfLog() + " : " + msg;
+    String msgFinal =  "abdo"+ " : " +  _getTimeOfLog() + " : " + msg;
     _printSpecial(msgFinal);
   }
 
   /// print object
   static object ( Object object ) {
-    String msg = LogDeveloperInfo.appId + " : " + _getTimeOfLog() + " : " + object.toString();
+    String msg = "abdo"+ " : " + _getTimeOfLog() + " : " + object.toString();
     // var logger = Logger();
-    // logger.i(  LogDeveloperInfo.appId + " : " +  _getTimeOfLog() + " object: "  );
+    // logger.i(  "abdo"+ " : " +  _getTimeOfLog() + " object: "  );
     // logger.i(object );
     _printSpecial(  msg  );
   }
@@ -34,7 +32,7 @@ class Log {
    */
   /// print error
   static void e(String msg) {
-    String msgFinal = LogDeveloperInfo.appId + ": error : " +  _getTimeOfLog() + " : " + msg;
+    String msgFinal = "abdo"+ ": error : " +  _getTimeOfLog() + " : " + msg;
     _printSpecial(msgFinal);
   }
 
@@ -90,7 +88,7 @@ class Log {
     for (int i = 0; i < data.length; i += chunkSize) {
       final chunk = data.substring(i, i + chunkSize > data.length ? data.length : i + chunkSize);
 
-      if( i == 0 )print( LogDeveloperInfo.appId + " : " +  _getTimeOfLog() + " : BIG DATA:");
+      if( i == 0 )print( "abdo"+ " : " +  _getTimeOfLog() + " : BIG DATA:");
       print('$chunk');
     }
   }
