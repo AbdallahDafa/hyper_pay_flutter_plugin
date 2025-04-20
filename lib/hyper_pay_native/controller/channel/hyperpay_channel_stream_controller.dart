@@ -5,6 +5,7 @@ import 'package:hyper_pay/hyper_pay_native/model/request/hyperpay_channel_reques
 
 
 typedef HyperPayChannelListenerResult = Function( dynamic result );
+typedef HyperPayOnCompleteListener = Function( bool paymentSuccess );
 
 class HyperpayChannelStreamController {
 
@@ -14,7 +15,7 @@ class HyperpayChannelStreamController {
 
   static Future setupListenerFromNative( {required HyperPayChannelListenerResult callback}) async {
     _getDataStream().listen((event) {
-      Log.i("setupListenerFromNative()  from native: $event");
+      Log.i("abdo hyperpay - setupListenerFromNative()  from native: $event");
       callback(event );
 
     });
@@ -22,7 +23,7 @@ class HyperpayChannelStreamController {
 
 
   static Future sendDataToNative( HyperpayChannelRequest request ) async {
-    Log.i("sendDataToNative()  request: ${request.toJson()}");
+    Log.i("abdo hyperpay - sendDataToNative()  request: ${request.toJson()}");
     //jsonEncode(json)
     await _methodChannelSender.invokeMethod('fromFlutter', request.toJson()  );
   }
