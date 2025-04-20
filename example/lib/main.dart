@@ -121,36 +121,6 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
-  //
-  // visaPayment() async {
-  //
-  //   /// listener to result
-  //   await HyperpayChannelStreamController.setupListenerFromNative(
-  //       callback: ( result ) {
-  //
-  //         if( result.toString() == "success" ) {
-  //           /// check status call your server side
-  //           HyperPayMessageDialog.show(context,  "Payment Result",  "check status by call your server side using same checkoutID you create");
-  //
-  //         } else {
-  //           ///TODO failed payment
-  //           HyperPayMessageDialog.show(context,  "Payment Result",  "failed payment");
-  //         }
-  //       }
-  //   );
-  //
-  //   /// init request channel
-  //   var channelRequest = HyperpayChannelRequest ( );
-  //   channelRequest.shopperResultUrl =   "com.tuxedo.dafa.payment";  //contact hyperpay support to get merchantId
-  //   channelRequest.merchantId =  "merchant.com.tuxedo.dafa";  //contact hyperpay support to get merchantId
-  //   channelRequest.brandName = "VISA";
-  //   channelRequest.checkoutId = "BB6A3DCD12AC43DAA236FA5D00BD08F9.prod01-vm-tx02"; //get from your server side
-  //   channelRequest.amount =  1;
-  //   channelRequest.isTest = false ; //false means it's live
-  //   await HyperpayChannelStreamController.sendDataToNative(channelRequest);
-  //
-  // }
-
 
 
 }

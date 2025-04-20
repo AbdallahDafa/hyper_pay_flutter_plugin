@@ -15,8 +15,4 @@ object Config {
     // the payment brands for Ready-to-Use UI and Payment Button
     var PAYMENT_BRANDS =  linkedSetOf( PAYMENT_BUTTON_BRAND ) //linkedSetOf("VISA", "MASTER", "MADA", "GOOGLEPAY")
 
-    // the default amount and currency
-//    var AMOUNT = "1"
-//    var CURRENCY = "SAR"
-//    const val MERCHANT_ID = "merchant.com.tuxedo.dafa"
 }

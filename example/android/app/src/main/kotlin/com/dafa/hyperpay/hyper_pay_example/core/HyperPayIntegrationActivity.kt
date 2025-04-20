@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 //import com.dafa.hyperpay.hyper_pay.hyper_pay_example.R
 import com.dafa.hyperpay.hyper_pay_example.R
 
-//import com.dafa.tuxedo.MainActivity
+
 
 class HyperPayIntegrationActivity : AppCompatActivity() {
 
