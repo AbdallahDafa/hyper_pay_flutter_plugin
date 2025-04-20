@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hyper_pay/helper/dialog/MessageDialog.dart';
+import 'package:hyper_pay/helper/dialog/hyperpay_message_dialog.dart';
+
 import 'package:hyper_pay/hyper_pay_native/controller/channel/hyperpay_channel_stream_controller.dart';
 import 'package:hyper_pay/hyper_pay_native/model/request/hyperpay_channel_request.dart';
 
@@ -43,11 +44,11 @@ class _ExampleHyperPayScreenState extends State<ExampleHyperPayScreen> {
 
           if( result.toString() == "success" ) {
               /// check status call your server side
-            MessageDialog.show(context,  "Payment Result",  "check status by call your server side using same checkoutID you create");
+            HyperPayMessageDialog.show(context,  "Payment Result",  "check status by call your server side using same checkoutID you create");
 
           } else {
             ///TODO failed payment
-            MessageDialog.show(context,  "Payment Result",  "failed payment");
+            HyperPayMessageDialog.show(context,  "Payment Result",  "failed payment");
           }
         }
     );

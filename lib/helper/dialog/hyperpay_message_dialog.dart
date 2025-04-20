@@ -6,7 +6,7 @@ import 'package:hyper_pay/helper/log/Log.dart';
 
 typedef MessageOkButtonOnPress = Function();
 
-class MessageDialog {
+class HyperPayMessageDialog {
 
 
   static show(BuildContext context, String title, String msg, {
