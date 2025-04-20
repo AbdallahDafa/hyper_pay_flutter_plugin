@@ -3,6 +3,7 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 import 'package:hyper_pay/hyper_pay.dart';
+import 'package:hyper_pay/hyper_pay_platform_interface.dart';
 
 void main() {
   runApp(const MyApp());
@@ -55,7 +56,21 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Running on: $_platformVersion\n'),
+          child:  Column(children: [
+
+            Text('Flutter exmaple/main.dart , get result Running on: $_platformVersion\n'),
+
+            SizedBox( height: 100 ,),
+            GestureDetector(
+                child:  Text("Open Hyperpay Visa"),
+                onTap: () async {
+
+                  await HyperPayPlatform.instance.fromFlutter();
+                })
+
+
+
+          ],),
         ),
       ),
     );

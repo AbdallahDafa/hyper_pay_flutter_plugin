@@ -25,10 +25,12 @@ class HyperPayPlugin: FlutterPlugin, MethodCallHandler {
     Log.i("abdo", "HyperPayPlugin - onMethodCall() - result: $result")
 
     if (call.method == "getPlatformVersion") {
-      result.success("Android ${android.os.Build.VERSION.RELEASE}")
+      Log.i("abdo", "HyperPayPlugin - onMethodCall() - getPlatformVersion - success")
+      result.success("Test Android ${android.os.Build.VERSION.RELEASE}")
 
     }  else if ( call.method == "fromFlutter") {
       Log.i("abdo", "HyperPayPlugin - onMethodCall() - method: fromFlutter - result: $result")
+
     } else {
       result.notImplemented()
     }

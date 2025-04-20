@@ -10,6 +10,12 @@ class MockHyperPayPlatform
 
   @override
   Future<String?> getPlatformVersion() => Future.value('42');
+
+  @override
+  Future fromFlutter() {
+    // TODO: implement fromFlutter
+    throw UnimplementedError();
+  }
 }
 
 void main() {

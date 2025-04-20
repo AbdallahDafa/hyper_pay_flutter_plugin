@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!--    package path is :    com.dafa.hyperpay.hyper_pay_example -->
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -11,12 +12,12 @@
 
         <!--    ........................ < start :  hyper pay native android sdk serucre -->
 
-        <receiver android:name=".hyperpay.receiver.CheckoutBroadcastReceiver"
+        <receiver android:name=".core.receiver.CheckoutBroadcastReceiver"
             android:exported="false"/>
 
 
         <activity
-            android:name=".hyperpay.HyperPayIntegrationActivity"
+            android:name=".core.HyperPayIntegrationActivity"
             android:theme="@style/MakeMyActivityTransparent"
             android:exported="false">
         </activity>

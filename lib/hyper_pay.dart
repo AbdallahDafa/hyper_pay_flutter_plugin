@@ -5,4 +5,6 @@ class HyperPay {
   Future<String?> getPlatformVersion() {
     return HyperPayPlatform.instance.getPlatformVersion();
   }
+
+
 }

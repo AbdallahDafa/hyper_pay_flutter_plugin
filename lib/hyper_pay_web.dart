@@ -23,4 +23,10 @@ class HyperPayWeb extends HyperPayPlatform {
     final version = web.window.navigator.userAgent;
     return version;
   }
+
+  @override
+  Future fromFlutter() {
+    // TODO: implement fromFlutter
+    throw UnimplementedError();
+  }
 }
