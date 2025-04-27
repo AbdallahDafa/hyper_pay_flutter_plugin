@@ -1,15 +1,14 @@
-package com.dafa.hyperpay.hyper_pay_example.core
+package com.dafa.hyperpay.hyper_pay.core
 
-import android.os.Bundle
-import android.widget.ImageView
 //import androidx.activity.enableEdgeToEdge
-import com.dafa.hyperpay.hyper_pay_example.core.flutter.HyperpayFlutterChannelController
-import com.dafa.hyperpay.hyper_pay_example.core.flutter.HyperpayFlutterRequest
+//import com.dafa.hyperpay.hyper_pay.hyper_pay.R
+import android.os.Bundle
 import android.util.Log
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-//import com.dafa.hyperpay.hyper_pay.hyper_pay_example.R
-import com.dafa.hyperpay.hyper_pay_example.R
-
+import com.dafa.hyperpay.hyper_pay.R
+import com.dafa.hyperpay.hyper_pay.core.flutter.HyperpayFlutterChannelController
+import com.dafa.hyperpay.hyper_pay.core.flutter.HyperpayFlutterRequest
 
 
 class HyperPayIntegrationActivity : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package com.dafa.hyperpay.hyper_pay_example.core
+package com.dafa.hyperpay.hyper_pay.core
 
 import com.oppwa.mobile.connect.provider.Connect
 

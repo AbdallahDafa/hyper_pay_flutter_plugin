@@ -1,23 +1,19 @@
-package com.dafa.hyperpay.hyper_pay_example.core.flutter
+package com.dafa.hyperpay.hyper_pay.core.flutter
 
+// flutter import class EventChannelSavedEvent
 import android.content.ComponentName
-
 import android.util.Log
-
 import androidx.activity.result.ActivityResultLauncher
 import androidx.appcompat.app.AppCompatActivity
-import com.dafa.hyperpay.hyper_pay_example.core.Config
-import com.dafa.hyperpay.hyper_pay_example.core.Config.PAYMENT_BUTTON_BRAND
-import com.dafa.hyperpay.hyper_pay_example.core.receiver.CheckoutBroadcastReceiver
+import com.dafa.hyperpay.hyper_pay.HyperPayMainActivity
+
+import com.dafa.hyperpay.hyper_pay.core.Config
+import com.dafa.hyperpay.hyper_pay.core.receiver.CheckoutBroadcastReceiver
 import com.oppwa.mobile.connect.checkout.meta.CheckoutActivityResult
 import com.oppwa.mobile.connect.checkout.meta.CheckoutActivityResultContract
 import com.oppwa.mobile.connect.checkout.meta.CheckoutSettings
 import com.oppwa.mobile.connect.checkout.meta.CheckoutSkipCVVMode
 import com.oppwa.mobile.connect.provider.Connect
-import com.oppwa.mobile.connect.provider.TransactionType
-
-// flutter import class EventChannelSavedEvent
-import com.dafa.hyperpay.hyper_pay_example.MainActivity
 
 object HyperpayFlutterChannelController {
 
@@ -46,7 +42,7 @@ object HyperpayFlutterChannelController {
         Log.i( "abdo hyperpay", "fireToFlutterCompleteFailed()")
         activityCompat.finish();
         /// TO-DO call channel flutter
-        MainActivity.eventSink?.success("failed")
+        HyperPayMainActivity.eventSink?.success("failed")
     }
 
 
@@ -54,7 +50,7 @@ object HyperpayFlutterChannelController {
         Log.i( "abdo hyperpay", "fireToFlutterCompleteSuccessWhileNeedCheckStatus()")
         activityCompat.finish();
         /// TO-DO call channel flutter
-        MainActivity.eventSink?.success("success")
+        HyperPayMainActivity.eventSink?.success("success")
     }
 
 

@@ -1,4 +1,4 @@
-package com.dafa.hyperpay.hyper_pay_example.core.flutter
+package com.dafa.hyperpay.hyper_pay.core.flutter
 
 import java.io.Serializable
 

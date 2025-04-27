@@ -1,9 +1,9 @@
-package com.dafa.hyperpay.hyper_pay_example.core.router
+package com.dafa.hyperpay.hyper_pay.core.router
 
 import android.content.Context
 import android.content.Intent
-import com.dafa.hyperpay.hyper_pay_example.core.HyperPayIntegrationActivity
-import com.dafa.hyperpay.hyper_pay_example.core.flutter.HyperpayFlutterRequest
+import com.dafa.hyperpay.hyper_pay.core.HyperPayIntegrationActivity
+import com.dafa.hyperpay.hyper_pay.core.flutter.HyperpayFlutterRequest
 
 object HyperPayRouter {
 

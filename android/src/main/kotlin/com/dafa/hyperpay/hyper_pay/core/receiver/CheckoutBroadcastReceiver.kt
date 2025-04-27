@@ -1,15 +1,11 @@
-package com.dafa.hyperpay.hyper_pay_example.core.receiver
+package com.dafa.hyperpay.hyper_pay.core.receiver
 
 import android.content.BroadcastReceiver
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
-
 import android.util.Log
-import com.dafa.hyperpay.hyper_pay_example.core.Config
-
 import com.oppwa.mobile.connect.checkout.dialog.CheckoutActivity
-
 import com.oppwa.msa.model.response.CheckoutCreationResponse
 
 

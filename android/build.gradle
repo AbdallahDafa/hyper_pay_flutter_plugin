@@ -6,6 +6,7 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://jitpack.io' }
     }
 
     dependencies {
@@ -18,6 +19,11 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://jitpack.io' }
+//        flatDir {
+//            dirs project(':hyper_pay_payment').file('libs')
+//        }
+
     }
 }
 
@@ -67,40 +73,54 @@ android {
     }
 
 
-//    // < start ---- hyper pay
-//    compileOptions {
-//        sourceCompatibility JavaVersion.VERSION_1_8
-//        targetCompatibility JavaVersion.VERSION_1_8
-//    }
-//
-//    kotlinOptions {
-//        jvmTarget = "1.8"
-//    }
-//
-//    viewBinding {
-//        enabled = true
-//    }
-//
-//    //-- - hyper pay end >
+    // < start ---- hyper pay
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    viewBinding {
+        enabled = true
+    }
+
+    //-- - hyper pay end >
 
 }
 //dependencies {
 //    implementation 'androidx.appcompat:appcompat:1.7.0'
 //}
 
-//dependencies {
-//    //---  hyper pay copy/native android code
-//    implementation fileTree(include: ["*.aar"], dir: "libs")
-//    implementation "com.google.android.material:material:1.6.1"
-//    implementation "androidx.appcompat:appcompat:1.5.1"
-//    implementation "androidx.browser:browser:1.4.0"
-//    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.7.1" //write kotlin version
-//    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1"
-//    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1"
-//    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
-//    implementation "androidx.webkit:webkit:1.9.0"
-//    implementation "com.google.code.gson:gson:2.10"
-//    implementation "com.google.android.material:material:1.11.0"
-//    implementation "androidx.fragment:fragment-ktx:1.6.2"
-//    implementation "com.google.android.gms:play-services-wallet:19.2.1"
-//}
+dependencies {
+
+    //-------------  hyper pay install .aar files
+    // install file : oppwa aar
+    implementation 'com.github.AbdallahDafa:hyperpay_sdk_library:v1.0.32'
+    implementation 'com.github.AbdallahDafa:hyperpay_sdk_library:1.0.32:oppwa@aar'
+
+    // install file : mas aar
+    implementation 'com.github.AbdallahDafa:hyperpay_sdk_library_msa:v1.0.32'
+    implementation 'com.github.AbdallahDafa:hyperpay_sdk_library_msa:1.0.32:msa@aar'
+
+    //install file : ipworks3ds_sdk aar
+    implementation 'com.github.AbdallahDafa:hyperpay_sdk_library_3ds:v1.0.36'
+    implementation 'com.github.AbdallahDafa:hyperpay_sdk_library_3ds:1.0.36:ipworks3ds_sdk@aar'
+
+    //-------------  hyper pay other dependences
+
+    implementation "com.google.android.material:material:1.6.1"
+    implementation "androidx.appcompat:appcompat:1.5.1"
+    implementation "androidx.browser:browser:1.4.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.7.1" //write kotlin version
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1"
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    implementation "androidx.webkit:webkit:1.9.0"
+    implementation "com.google.code.gson:gson:2.10"
+    implementation "com.google.android.material:material:1.11.0"
+    implementation "androidx.fragment:fragment-ktx:1.6.2"
+    implementation "com.google.android.gms:play-services-wallet:19.2.1"
+}
