@@ -1,4 +1,5 @@
 
+import 'package:hyper_pay_payment/helper/log/hyperpay_log.dart';
 import 'package:hyper_pay_payment/hyper_pay_native/controller/channel/hyperpay_channel_stream_controller.dart';
 export 'package:hyper_pay_payment/hyper_pay_native/controller/channel/hyperpay_channel_stream_controller.dart';
 import 'package:hyper_pay_payment/hyper_pay_native/model/request/hyperpay_channel_request.dart';
@@ -14,8 +15,10 @@ class HyperPayPayment {
   late HyperpayChannelRequest req ;
 
   /// test method
-  Future<String?> getPlatformVersion() {
-    return HyperPayPaymentPlatform.instance.getPlatformVersion();
+  static Future<String > getPlatformVersion() async {
+    var result =  await HyperPayPaymentPlatform.instance.getPlatformVersion();
+    HyperPayLog.i("getPlatformVersion() - result: $result");
+    return result??"faildGetVerison";
   }
 
 

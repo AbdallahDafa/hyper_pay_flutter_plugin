@@ -24,6 +24,8 @@ class _MyAppState extends State<MyApp> {
 
   bool? isPaymentSuccess = null  ;
 
+  String result = "";
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -49,25 +51,42 @@ class _MyAppState extends State<MyApp> {
               onTap: () async {
                 // visaPayment();
 
-                /// init request channel
-                var channelRequest = HyperpayChannelRequest ( );
-                channelRequest.shopperResultUrl =   "com.tuxedo.dafa.payment";  //contact hyperpay support to get merchantId
-                channelRequest.merchantId =  "merchant.com.tuxedo.dafa";  //contact hyperpay support to get merchantId
-                channelRequest.brandName = "VISA";
-                channelRequest.checkoutId = "CE3AC6C6D0CB1999E0BA2FBBF3B1EFD7.prod01-vm-tx07"; //get from your server side
-                channelRequest.amount =  1;
-                channelRequest.isTest = false ; //false means it's live
 
-                await HyperPayPayment.newPayment(channelRequest : channelRequest, onComplete: (bool isSuccess) {
+                /**
+                 *
+                   /// init request channel
+                    var channelRequest = HyperpayChannelRequest ( );
+                    channelRequest.shopperResultUrl =   "com.tuxedo.dafa.payment";  //contact hyperpay support to get merchantId
+                    channelRequest.merchantId =  "merchant.com.tuxedo.dafa";  //contact hyperpay support to get merchantId
+                    channelRequest.brandName = "VISA";
+                    channelRequest.checkoutId = "39483FE1FB7615176C57187EC629EDF1.prod02-vm-tx07"; //get from your server side
+                    channelRequest.amount =  1;
+                    channelRequest.isTest = false ; //false means it's live
 
-                  setState(() {
+                    await HyperPayPayment.newPayment(
+                    channelRequest : channelRequest,
+                    onComplete: (bool isSuccess) {
+
+                    setState(() {
                     isPaymentSuccess = isSuccess;
-                  });
+                    });
+                    } );
+                 */
 
-                } );
+
+                setState(() async {
+                  result = await HyperPayPayment.getPlatformVersion();
+                });
+
+
+
               },
             ),
             SizedBox( height: 20 ,),
+
+            /// result
+            if(result !=  "" ) Text( result ,
+              style: TextStyle( color: Colors.yellow),),
 
             /// status
             if( isPaymentSuccess != null && isPaymentSuccess == true )Text( "Payment success, need to check status in your server side" ,
