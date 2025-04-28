@@ -14,6 +14,7 @@ class MethodChannelHyperPay extends HyperPayPaymentPlatform {
   @override
   Future<String?> getPlatformVersion() async {
     final version = await methodChannel.invokeMethod<String>('getPlatformVersion');
+    HyperPayLog.i("abdo - MethodChannelHyperPay - getPlatformVersion()");
     return version;
   }
 
@@ -23,5 +24,7 @@ class MethodChannelHyperPay extends HyperPayPaymentPlatform {
     await methodChannel.invokeMethod('fromFlutter');
   }
 
+  static MethodChannel getMethodChannel( String name) => MethodChannel(name);
+  static EventChannel getEventChannel( String name) => EventChannel(name);
 
 }
