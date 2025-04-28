@@ -35,7 +35,7 @@ class HyperPayPlugin: FlutterPlugin {
   private lateinit var context: Context
 
   override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-   /// context = flutterPluginBinding.applicationContext
+   context = flutterPluginBinding.applicationContext
 //    channel = MethodChannel(flutterPluginBinding.binaryMessenger, "hyper_pay")
     Log.i("abdo", "HyperPayPlugin - channel: $channel")
     setUpChannelHyperPayFromFlutter(flutterPluginBinding.binaryMessenger)
@@ -82,7 +82,7 @@ class HyperPayPlugin: FlutterPlugin {
             isLive = isTest == false
           )
           Log.i("abdo", "HyperPayPlugin - setUpChannelHyperPayFromFlutter() - request: $request")
-         /////// HyperPayRouter.openHyperPayDialog( context,  request)
+         HyperPayRouter.openHyperPayDialog( context,  request)
         }
       } else{
         result.notImplemented()
@@ -96,13 +96,13 @@ class HyperPayPlugin: FlutterPlugin {
       object : EventChannel.StreamHandler {
         override fun onListen(arguments: Any?, events: EventChannel.EventSink?) {
           HyperPayPlugin.eventSink = events
-          Log.i("abdo", "HyperPayMainActivity - setupChannelHyperPaySendToFlutter() - onListen - arguments: $arguments");
+          Log.i("abdo", "HyperPayPlugin - setupChannelHyperPaySendToFlutter() - onListen - arguments: $arguments");
 
         }
 
         override fun onCancel(arguments: Any?) {
           HyperPayPlugin.eventSink = null
-          Log.i("abdo", "HyperPayMainActivity - setupChannelHyperPaySendToFlutter() - onCancel - arguments: $arguments");
+          Log.i("abdo", "HyperPayPlugin - setupChannelHyperPaySendToFlutter() - onCancel - arguments: $arguments");
         }
       }
     )
