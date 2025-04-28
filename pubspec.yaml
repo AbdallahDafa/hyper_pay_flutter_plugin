@@ -32,7 +32,7 @@ flutter:
         pluginClass: HyperPayPlugin
       ios:
         pluginClass: HyperPayPlugin
-        platformVersion: '12.0'  # or your desired minimum iOS version
+        platformVersion: '15.0'  # or your desired minimum iOS version
 
 #      web:
 #        pluginClass: HyperPayWeb
