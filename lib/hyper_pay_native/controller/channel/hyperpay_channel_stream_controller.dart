@@ -17,7 +17,7 @@ class HyperpayChannelStreamController {
 
   static Future setupListenerFromNative( {required HyperPayChannelListenerResult callback}) async {
     // EventChannel _eventChannelListener = EventChannel('com.hyperpay/listenFromNative');
-    var _eventChannelListener = MethodChannelHyperPay.getEventChannel( 'com.hyperpay/sendToNative' );
+    var _eventChannelListener = MethodChannelHyperPay.getEventChannel( 'com.hyperpay/listenFromNative' );
     Stream<dynamic> _getDataStream() => _eventChannelListener.receiveBroadcastStream();
     _getDataStream().listen((event) {
       HyperPayLog.i("abdo hyperpay - setupListenerFromNative()  from native: $event");
