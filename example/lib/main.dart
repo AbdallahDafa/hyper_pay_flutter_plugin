@@ -50,31 +50,33 @@ class _MyAppState extends State<MyApp> {
               ),
               onTap: () async {
 
-                /// init request channel
-                var channelRequest = HyperpayChannelRequest ( );
-                channelRequest.shopperResultUrl =   "com.tuxedo.dafa.payment";  //contact hyperpay support to get merchantId
-                channelRequest.merchantId =  "merchant.com.tuxedo.dafa";  //contact hyperpay support to get merchantId
-                channelRequest.brandName = "VISA";
-                channelRequest.checkoutId = "50797B004CC64A2003A2EFC442205E34.prod02-vm-tx11"; //get from your server side
-                channelRequest.amount =  1;
-                channelRequest.isTest = false ; //false means it's live
-
-                await HyperPayPayment.newPayment(
-                    channelRequest : channelRequest,
-                    onComplete: (bool isSuccess) {
-
-                      setState(() {
-                        isPaymentSuccess = isSuccess;
-                      });
-                    } );
-
-
+                setState(() async {
+                  result = await HyperPayPayment.getPlatformVersion();
+                });
 
                 /**
                  *
-                    setState(() async {
-                    result = await HyperPayPayment.getPlatformVersion();
+
+
+                    /// init request channel
+                    var channelRequest = HyperpayChannelRequest ( );
+                    channelRequest.shopperResultUrl =   "com.tuxedo.dafa.payment";  //contact hyperpay support to get merchantId
+                    channelRequest.merchantId =  "merchant.com.tuxedo.dafa";  //contact hyperpay support to get merchantId
+                    channelRequest.brandName = "VISA";
+                    channelRequest.checkoutId = "50797B004CC64A2003A2EFC442205E34.prod02-vm-tx11"; //get from your server side
+                    channelRequest.amount =  1;
+                    channelRequest.isTest = false ; //false means it's live
+
+                    await HyperPayPayment.newPayment(
+                    channelRequest : channelRequest,
+                    onComplete: (bool isSuccess) {
+
+                    setState(() {
+                    isPaymentSuccess = isSuccess;
                     });
+                    } );
+
+
 
                  */
 

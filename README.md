@@ -48,17 +48,17 @@
 
                 } );
 ```
-* the above code will boolean type "isSuccess", when success that's means the payment completed without any failed,
+* Note: the above code will return the result in boolean type "isSuccess", when success that's means the payment completed without any failure,
   But Notice you must call your server side to check status of this checkoutID if the money payed or not.
  
 ### Step Three : Check Status Of Payment 
 
-* call your server side to check after completed payment, if this checkout id is completed and success charge money or not.
+* Checker By Your Server: Call your server side to check after completed payment in previous step, if this checkout id is completed and success charge money or not.
 
 
 ### Screenshot Visa Payment 
 
-* Android Screens :
+* Android Visa Screens :
 
 <div style="display: flex; gap: 10px;">
   <img src="https://github.com/AbdallahDafa/hyper_pay_flutter_plugin/blob/main/screenshot/android-1.png?raw=true" alt="Image 1" width="200" />
@@ -67,8 +67,9 @@
 </div>
 
 
-* IPhone Screens :
+* IPhone Visa Screens :
 
+## coming soon
 
 -----
 
@@ -110,6 +111,12 @@
 ### Step Three : Check Status Of Payment
 
 * call your server side to check after completed payment, if this checkout id is completed and success charge money or not.
+
+### Screenshot Apple Pay Payment
+
+* IPhone Apple Pay Screens :
+
+## coming soon
 
 
 -----
