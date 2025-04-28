@@ -32,6 +32,8 @@ flutter:
         pluginClass: HyperPayPlugin
       ios:
         pluginClass: HyperPayPlugin
+        platformVersion: '12.0'  # or your desired minimum iOS version
+
 #      web:
 #        pluginClass: HyperPayWeb
 #        fileName: hyper_pay_web.dart

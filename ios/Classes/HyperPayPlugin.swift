@@ -6,11 +6,6 @@ public class HyperPayPlugin: NSObject, FlutterPlugin {
     let channel = FlutterMethodChannel(name: "hyper_pay", binaryMessenger: registrar.messenger())
     let instance = HyperPayPlugin()
     registrar.addMethodCallDelegate(instance, channel: channel)
-
-          //:::::::::::::::::::::::::::::::::::::::::::::::::::::: hyperpay
-
-          //setupHyperPay();
-
   }
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
