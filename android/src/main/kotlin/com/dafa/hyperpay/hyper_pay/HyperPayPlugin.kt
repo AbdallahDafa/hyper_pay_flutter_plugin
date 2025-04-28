@@ -35,11 +35,75 @@ class HyperPayPlugin: FlutterPlugin {
   override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
 //    channel = MethodChannel(flutterPluginBinding.binaryMessenger, "hyper_pay")
     Log.i("abdo", "HyperPayPlugin - channel: $channel")
-//    channel.setMethodCallHandler(this)
+    setUpChannelHyperPayFromFlutter(flutterPluginBinding.binaryMessenger)
+    setupChannelHyperPaySendToFlutter(flutterPluginBinding.binaryMessenger);
   }
 
 
   override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
     channel.setMethodCallHandler(null)
   }
+
+  //------------------------------------------------------------- channel hyperpay
+
+  private fun setUpChannelHyperPayFromFlutter(messenger: BinaryMessenger){
+    val METHOD_CHANNEL_NAME = "com.hyperpay/sendToNative"
+    var methodChannel = MethodChannel(messenger,METHOD_CHANNEL_NAME)
+    methodChannel.setMethodCallHandler {
+        call, result ->
+
+      Log.i("abdo", "HyperPayMainActivity - setUpChannelHyperPayFromFlutter() - result: $result")
+
+      if (call.method.equals("fromFlutter")){
+        Log.i("abdo", "HyperPayMainActivity - setUpChannelHyperPayFromFlutter() - result: $result");
+        Log.i("abdo", "HyperPayMainActivity - setUpChannelHyperPayFromFlutter() - call.arguments: ${call.arguments}");
+
+        /// parse
+        val arguments = call.arguments as? Map<*, *>
+        if (arguments != null) {
+          val data = arguments.mapKeys { it.key.toString() } // now it's Map<String, Any?>
+          val checkoutId = data["checkoutId"] as  String
+          val brandName = data["brandName"] as  String
+          val amount = data["amount"] as   Double
+          val isTest = data["isTest"] as  Boolean
+          Log.i("abdo", "HyperPayMainActivity - setUpChannelHyperPayFromFlutter() - parse checkoutId: $checkoutId")
+          Log.i("abdo", "HyperPayMainActivity - setUpChannelHyperPayFromFlutter() - parse amount: $amount")
+          Log.i("abdo", "HyperPayMainActivity - setUpChannelHyperPayFromFlutter() - parse isTest: $isTest")
+          Log.i("abdo", "HyperPayMainActivity - setUpChannelHyperPayFromFlutter() - parse brandName: $brandName")
+
+          // open ui with request
+          val request = HyperpayFlutterRequest(
+            checkoutId = checkoutId,
+            amount = amount,
+            brandName = brandName,
+            isLive = isTest == false
+          )
+          Log.i("abdo", "HyperPayMainActivity - setUpChannelHyperPayFromFlutter() - request: $request")
+        /////  HyperPayRouter.openHyperPayDialog( this,  request)
+        }
+      } else{
+        result.notImplemented()
+      }
+
+    }
+  }
+
+  private fun setupChannelHyperPaySendToFlutter(messenger: BinaryMessenger){
+    EventChannel(messenger, "com.hyperpay/listenFromNative").setStreamHandler(
+      object : EventChannel.StreamHandler {
+        override fun onListen(arguments: Any?, events: EventChannel.EventSink?) {
+          HyperPayMainActivity.eventSink = events
+          Log.i("abdo", "HyperPayMainActivity - setupChannelHyperPaySendToFlutter() - onListen - arguments: $arguments");
+
+        }
+
+        override fun onCancel(arguments: Any?) {
+          HyperPayMainActivity.eventSink = null
+          Log.i("abdo", "HyperPayMainActivity - setupChannelHyperPaySendToFlutter() - onCancel - arguments: $arguments");
+        }
+      }
+    )
+  }
+
+
 }
