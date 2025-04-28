@@ -18,6 +18,46 @@
 
 
 
+## Config Gradle
+
+* Add JitPack to your build.gradle (Project-level) line :
+```
+ maven { url 'https://jitpack.io' } // important line
+```
+
+* example 
+* 
+```groovy
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' } // important line
+    }
+}
+```
+in newer Gradle versions (settings.gradle or settings.gradle.kts), make sure JitPack is added like this:
+gradle
+
+```groovy
+dependencyResolutionManagement {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' } // important line
+    }
+} 
+
+```
+ 
+
+-----
+
+-----
+
+
+
 ## Create Payment Type :  VISA/MASTER/MADA
 
 
