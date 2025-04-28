@@ -1,6 +1,6 @@
 name: hyper_pay_payment
 description: "HYPER PAY FLUTTER PLUGIN , Payment method : VISA, MASTER, MADA, APPLE PAY"
-version: 1.0.0
+version: 1.0.1
 homepage: https://www.hyperpay.com
 repository: https://github.com/AbdallahDafa/hyper_pay_flutter_plugin
 license: MIT
