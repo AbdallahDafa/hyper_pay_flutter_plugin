@@ -145,4 +145,8 @@ SOFTWARE.
 ````
 
 # Company Dafa.sa
-created by developer abdallah at dafa company
+
+* created by developer abdallah at dafa company
+  
+<img src="https://github.com/AbdallahDafa/hyper_pay_flutter_plugin/blob/main/screenshot/dev-abdallah.png?raw=true" alt="Image 1" width="80" />
+ 
