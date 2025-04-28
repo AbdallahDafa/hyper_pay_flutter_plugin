@@ -5,7 +5,8 @@ import android.content.ComponentName
 import android.util.Log
 import androidx.activity.result.ActivityResultLauncher
 import androidx.appcompat.app.AppCompatActivity
-import com.dafa.hyperpay.hyper_pay.HyperPayMainActivity
+import com.dafa.hyperpay.hyper_pay.HyperPayPlugin
+//import com.dafa.hyperpay.hyper_pay.HyperPayMainActivity
 
 import com.dafa.hyperpay.hyper_pay.core.Config
 import com.dafa.hyperpay.hyper_pay.core.receiver.CheckoutBroadcastReceiver
@@ -42,7 +43,7 @@ object HyperpayFlutterChannelController {
         Log.i( "abdo hyperpay", "fireToFlutterCompleteFailed()")
         activityCompat.finish();
         /// TO-DO call channel flutter
-        HyperPayMainActivity.eventSink?.success("failed")
+        HyperPayPlugin.eventSink?.success("failed")
     }
 
 
@@ -50,7 +51,7 @@ object HyperpayFlutterChannelController {
         Log.i( "abdo hyperpay", "fireToFlutterCompleteSuccessWhileNeedCheckStatus()")
         activityCompat.finish();
         /// TO-DO call channel flutter
-        HyperPayMainActivity.eventSink?.success("success")
+        HyperPayPlugin.eventSink?.success("success")
     }
 
 

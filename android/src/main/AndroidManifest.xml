@@ -20,11 +20,11 @@
             android:exported="false">
         </activity>
 
-        <activity
-            android:name=".HyperPayMainActivity"
-            android:theme="@style/MakeMyActivityTransparent"
-            android:exported="false">
-        </activity>
+<!--        <activity-->
+<!--            android:name=".HyperPayMainActivity"-->
+<!--            android:theme="@style/MakeMyActivityTransparent"-->
+<!--            android:exported="false">-->
+<!--        </activity>-->
 
 
         <!--    ........................  end>  -->

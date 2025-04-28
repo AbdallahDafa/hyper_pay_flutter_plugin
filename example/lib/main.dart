@@ -49,34 +49,34 @@ class _MyAppState extends State<MyApp> {
                 child: Text("Visa"),
               ),
               onTap: () async {
-                // visaPayment();
+
+                /// init request channel
+                var channelRequest = HyperpayChannelRequest ( );
+                channelRequest.shopperResultUrl =   "com.tuxedo.dafa.payment";  //contact hyperpay support to get merchantId
+                channelRequest.merchantId =  "merchant.com.tuxedo.dafa";  //contact hyperpay support to get merchantId
+                channelRequest.brandName = "VISA";
+                channelRequest.checkoutId = "AA67C5F3B384BA37DED11DEDC35D74C9.prod02-vm-tx03"; //get from your server side
+                channelRequest.amount =  1;
+                channelRequest.isTest = false ; //false means it's live
+
+                await HyperPayPayment.newPayment(
+                    channelRequest : channelRequest,
+                    onComplete: (bool isSuccess) {
+
+                      setState(() {
+                        isPaymentSuccess = isSuccess;
+                      });
+                    } );
+
 
 
                 /**
                  *
-                   /// init request channel
-                    var channelRequest = HyperpayChannelRequest ( );
-                    channelRequest.shopperResultUrl =   "com.tuxedo.dafa.payment";  //contact hyperpay support to get merchantId
-                    channelRequest.merchantId =  "merchant.com.tuxedo.dafa";  //contact hyperpay support to get merchantId
-                    channelRequest.brandName = "VISA";
-                    channelRequest.checkoutId = "39483FE1FB7615176C57187EC629EDF1.prod02-vm-tx07"; //get from your server side
-                    channelRequest.amount =  1;
-                    channelRequest.isTest = false ; //false means it's live
-
-                    await HyperPayPayment.newPayment(
-                    channelRequest : channelRequest,
-                    onComplete: (bool isSuccess) {
-
-                    setState(() {
-                    isPaymentSuccess = isSuccess;
+                    setState(() async {
+                    result = await HyperPayPayment.getPlatformVersion();
                     });
-                    } );
+
                  */
-
-
-                setState(() async {
-                  result = await HyperPayPayment.getPlatformVersion();
-                });
 
 
 

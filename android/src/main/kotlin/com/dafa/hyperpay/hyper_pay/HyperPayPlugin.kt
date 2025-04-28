@@ -7,6 +7,7 @@ import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 
+import android.content.Context
 import android.Manifest
 import android.content.pm.PackageManager
 import androidx.annotation.NonNull
@@ -31,8 +32,10 @@ class HyperPayPlugin: FlutterPlugin {
   }
 
   private lateinit var channel : MethodChannel
+  private lateinit var context: Context
 
   override fun onAttachedToEngine(flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
+   /// context = flutterPluginBinding.applicationContext
 //    channel = MethodChannel(flutterPluginBinding.binaryMessenger, "hyper_pay")
     Log.i("abdo", "HyperPayPlugin - channel: $channel")
     setUpChannelHyperPayFromFlutter(flutterPluginBinding.binaryMessenger)
@@ -52,11 +55,11 @@ class HyperPayPlugin: FlutterPlugin {
     methodChannel.setMethodCallHandler {
         call, result ->
 
-      Log.i("abdo", "HyperPayMainActivity - setUpChannelHyperPayFromFlutter() - result: $result")
+      Log.i("abdo", "HyperPayPlugin - setUpChannelHyperPayFromFlutter() - result: $result")
 
       if (call.method.equals("fromFlutter")){
-        Log.i("abdo", "HyperPayMainActivity - setUpChannelHyperPayFromFlutter() - result: $result");
-        Log.i("abdo", "HyperPayMainActivity - setUpChannelHyperPayFromFlutter() - call.arguments: ${call.arguments}");
+        Log.i("abdo", "HyperPayPlugin - setUpChannelHyperPayFromFlutter() - result: $result");
+        Log.i("abdo", "HyperPayPlugin - setUpChannelHyperPayFromFlutter() - call.arguments: ${call.arguments}");
 
         /// parse
         val arguments = call.arguments as? Map<*, *>
@@ -66,10 +69,10 @@ class HyperPayPlugin: FlutterPlugin {
           val brandName = data["brandName"] as  String
           val amount = data["amount"] as   Double
           val isTest = data["isTest"] as  Boolean
-          Log.i("abdo", "HyperPayMainActivity - setUpChannelHyperPayFromFlutter() - parse checkoutId: $checkoutId")
-          Log.i("abdo", "HyperPayMainActivity - setUpChannelHyperPayFromFlutter() - parse amount: $amount")
-          Log.i("abdo", "HyperPayMainActivity - setUpChannelHyperPayFromFlutter() - parse isTest: $isTest")
-          Log.i("abdo", "HyperPayMainActivity - setUpChannelHyperPayFromFlutter() - parse brandName: $brandName")
+          Log.i("abdo", "HyperPayPlugin - setUpChannelHyperPayFromFlutter() - parse checkoutId: $checkoutId")
+          Log.i("abdo", "HyperPayPlugin - setUpChannelHyperPayFromFlutter() - parse amount: $amount")
+          Log.i("abdo", "HyperPayPlugin - setUpChannelHyperPayFromFlutter() - parse isTest: $isTest")
+          Log.i("abdo", "HyperPayPlugin - setUpChannelHyperPayFromFlutter() - parse brandName: $brandName")
 
           // open ui with request
           val request = HyperpayFlutterRequest(
@@ -78,8 +81,8 @@ class HyperPayPlugin: FlutterPlugin {
             brandName = brandName,
             isLive = isTest == false
           )
-          Log.i("abdo", "HyperPayMainActivity - setUpChannelHyperPayFromFlutter() - request: $request")
-        /////  HyperPayRouter.openHyperPayDialog( this,  request)
+          Log.i("abdo", "HyperPayPlugin - setUpChannelHyperPayFromFlutter() - request: $request")
+         /////// HyperPayRouter.openHyperPayDialog( context,  request)
         }
       } else{
         result.notImplemented()
@@ -92,13 +95,13 @@ class HyperPayPlugin: FlutterPlugin {
     EventChannel(messenger, "com.hyperpay/listenFromNative").setStreamHandler(
       object : EventChannel.StreamHandler {
         override fun onListen(arguments: Any?, events: EventChannel.EventSink?) {
-          HyperPayMainActivity.eventSink = events
+          HyperPayPlugin.eventSink = events
           Log.i("abdo", "HyperPayMainActivity - setupChannelHyperPaySendToFlutter() - onListen - arguments: $arguments");
 
         }
 
         override fun onCancel(arguments: Any?) {
-          HyperPayMainActivity.eventSink = null
+          HyperPayPlugin.eventSink = null
           Log.i("abdo", "HyperPayMainActivity - setupChannelHyperPaySendToFlutter() - onCancel - arguments: $arguments");
         }
       }
