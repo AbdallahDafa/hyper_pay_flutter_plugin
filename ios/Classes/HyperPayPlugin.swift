@@ -13,13 +13,17 @@ public class HyperPayPlugin: NSObject, FlutterPlugin {
   }
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
+  print("abdo - HyperPayPlugin - handle() - call.method \( call.method )");
+
     switch call.method {
-    case "getPlatformVersion":
 
-        result("iOS getPlatformVersion from swift native to flutter" ) //+ UIDevice.current.systemVersion
+        case "getPlatformVersion":
+            print("abdo - HyperPayPlugin - method - getPlatformVersion -");
+           result("iOS getPlatformVersion from swift native to flutter" )
 
-    default:
-        result( "no implementation found")
-    }
+
+        default:
+            result( "no implementation found")
+        }
   }
 }
