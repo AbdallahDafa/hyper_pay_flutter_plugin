@@ -50,9 +50,9 @@ class _MyAppState extends State<MyApp> {
               ),
               onTap: () async {
 
-                setState(() async {
+
                   result = await HyperPayPayment.getPlatformVersion();
-                });
+                  setState(()   {});
 
                 /**
                  *

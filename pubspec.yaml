@@ -10,6 +10,12 @@ environment:
   sdk: '>=3.4.0 <4.0.0'
   flutter: '>=3.22.0'
 
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+
 dependencies:
   flutter:
     sdk: flutter
@@ -18,11 +24,13 @@ dependencies:
   web: ^0.5.1
   plugin_platform_interface: ^2.0.2
 
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  flutter_lints: ^3.0.0
 
+  #----------------------------- cas flutter need to run ios example project as application
+  hyper_pay_payment_example:
+    path: example
+
+
+#----------------------------- cas flutter plugin when publish uncomment this code
 
 flutter:
   plugin:
@@ -33,7 +41,6 @@ flutter:
       ios:
         pluginClass: HyperPayPlugin
         platformVersion: '15.0'  # or your desired minimum iOS version
-
 #      web:
 #        pluginClass: HyperPayWeb
 #        fileName: hyper_pay_web.dart
