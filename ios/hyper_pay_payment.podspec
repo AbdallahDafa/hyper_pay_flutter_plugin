@@ -22,4 +22,7 @@ Pod::Spec.new do |s|
   # Abdallah Set version
   s.ios.deployment_target = "13.0"
   s.platform = :ios, '15.0'
+
+  # insert pods
+  s.dependency 'hyper_pay_installer'
 end

@@ -41,9 +41,9 @@ end
 
 #-----------------------------------------   hyperpay native (type: import github files )
 
-pod 'hyperpay-dafa-sdk-pod-installer-git-repository',
- :git => 'https://github.com/AbdallahDafa/hyperpay-dafa-sdk-pod-installer-git-repository',
- :tag => '1.0.9'
+#pod 'hyperpay-dafa-sdk-pod-installer-git-repository',
+# :git => 'https://github.com/AbdallahDafa/hyperpay-dafa-sdk-pod-installer-git-repository',
+# :tag => '1.0.9'
 
 #-----------------------------------------
 

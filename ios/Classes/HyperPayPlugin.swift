@@ -1,5 +1,6 @@
 import Flutter
 import UIKit
+import OPPWAMobile
 
 public class HyperPayPlugin: NSObject, FlutterPlugin {
 
