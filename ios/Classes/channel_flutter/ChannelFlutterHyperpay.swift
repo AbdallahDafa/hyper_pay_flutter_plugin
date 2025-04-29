@@ -56,40 +56,44 @@ struct HyperPayChannelRequest: Codable {
 
 extension HyperPayPlugin {
 
-    public func setupHyperPay(){
+     public func setupHyperPay(){
         print("abdo - HyperPay - setupHyperPay() - start");
         _setupSendDataFromSwiftToFlutter();
 //        _setupRecieveDataFromFlutter();
     }
 
-    func _setupSendDataFromSwiftToFlutter( ){
+    
+      func _setupSendDataFromSwiftToFlutter( ){
         let eventChannel = FlutterEventChannel(name: "com.hyperpay/listenFromNative",
                                                binaryMessenger: HyperPayPlugin.binaryMessenger!
         )
-        eventChannel.setStreamHandler(self)
+        //eventChannel.setStreamHandler(self)
+         
+         eventChannel.setStreamHandler(self)
         print("abdo - HyperPay - _setupSendDataFromSwiftToFlutter() - setup stream");
     }
 
 
-    func _setupRecieveDataFromFlutter(){
-//        let controller: FlutterViewController = window?.rootViewController as! FlutterViewController
-//        let channel = FlutterMethodChannel(name: "com.hyperpay/sendToNative", binaryMessenger: controller.binaryMessenger)
-//        print("abdo - hyperpay - _setupRecieveDataFromFlutter()- setup")
-//        channel.setMethodCallHandler { (call: FlutterMethodCall, result: @escaping FlutterResult) in
-//            if call.method == "fromFlutter" {
-//                if let args = call.arguments as? [String: Any] {
-//                    print("abdo - hyperpay - _setupRecieveDataFromFlutter()- Received from Flutter - args: \(args)")
-//                    self.parseDataReceivedFromFlutter(args);
-//                    self.openUIPaymentByChooseBrandType();
-//                    // Handle it
-//                    result("OK")
-//                } else {
-//                    result(FlutterError(code: "BAD_ARGS", message: "Missing data", details: nil))
-//                }
-//            } else {
-//                result( "not implemented")
-//            }
-//        }
+     func _setupRecieveDataFromFlutter(){
+ 
+        let channel = FlutterMethodChannel(name: "com.hyperpay/sendToNative",
+                                           binaryMessenger:   HyperPayPlugin.binaryMessenger! )
+        print("abdo - hyperpay - _setupRecieveDataFromFlutter()- setup")
+        channel.setMethodCallHandler { (call: FlutterMethodCall, result: @escaping FlutterResult) in
+            if call.method == "fromFlutter" {
+                if let args = call.arguments as? [String: Any] {
+                    print("abdo - hyperpay - _setupRecieveDataFromFlutter()- Received from Flutter - args: \(args)")
+                    self.parseDataReceivedFromFlutter(args);
+                    self.openUIPaymentByChooseBrandType();
+                    // Handle it
+                    result("OK")
+                } else {
+                    result(FlutterError(code: "BAD_ARGS", message: "Missing data", details: nil))
+                }
+            } else {
+                result( "not implemented")
+            }
+        }
     }
 
 
