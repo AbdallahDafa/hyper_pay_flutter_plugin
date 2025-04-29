@@ -53,32 +53,32 @@ struct HyperPayChannelRequest: Codable {
 
 //------------------------------------------------------------ setup
 
-extension AppDelegate {
-    
+extension HyperPayPlugin {
+
     func setupHyperPay(){
-        
+
         _setupSendDataFromSwiftToFlutter();
         _setupRecieveDataFromFlutter();
     }
-    
+
     func _setupSendDataFromSwiftToFlutter(){
         let controller: FlutterViewController = window?.rootViewController as! FlutterViewController
-        
+
         let eventChannel = FlutterEventChannel(name: "com.hyperpay/listenFromNative", binaryMessenger: controller.binaryMessenger)
-        
+
         eventChannel.setStreamHandler(self)
-        print("HyperPay - _setupSendDataFromSwiftToFlutter() - setup stream");
+        print("abdo - HyperPay - _setupSendDataFromSwiftToFlutter() - setup stream");
     }
-    
-    
+
+
     func _setupRecieveDataFromFlutter(){
         let controller: FlutterViewController = window?.rootViewController as! FlutterViewController
         let channel = FlutterMethodChannel(name: "com.hyperpay/sendToNative", binaryMessenger: controller.binaryMessenger)
-        print("hyperpay - _setupRecieveDataFromFlutter()- setup")
+        print("abdo - hyperpay - _setupRecieveDataFromFlutter()- setup")
         channel.setMethodCallHandler { (call: FlutterMethodCall, result: @escaping FlutterResult) in
             if call.method == "fromFlutter" {
                 if let args = call.arguments as? [String: Any] {
-                    print("hyperpay - _setupRecieveDataFromFlutter()- Received from Flutter - args: \(args)")
+                    print("abdo - hyperpay - _setupRecieveDataFromFlutter()- Received from Flutter - args: \(args)")
                     self.parseDataReceivedFromFlutter(args);
                     self.openUIPaymentByChooseBrandType();
                     // Handle it
@@ -91,14 +91,14 @@ extension AppDelegate {
             }
         }
     }
-    
+
 
 }
 
 
 //------------------------------------------------------------ send from swift to native
 
-extension AppDelegate : FlutterStreamHandler {
+extension HyperPayPlugin : FlutterStreamHandler {
     
     func onListen(withArguments arguments: Any?, eventSink events: @escaping FlutterEventSink) -> FlutterError? {
         HyperPayResultData.eventSink = events
@@ -121,14 +121,14 @@ extension AppDelegate : FlutterStreamHandler {
     
     
     func fireResultToFlutterSuccess(){
-        print("HyperPay - fireResultToFlutterSuccess() - send data");
+        print("abdo - HyperPay - fireResultToFlutterSuccess() - send data");
         if( HyperPayResultData.eventSink == nil ) { return;}
         HyperPayResultData.eventSink!( "success")
         
     }
     
     func fireResultToFlutterFailed(){
-        print("HyperPay - fireResultToFlutterFailed() - send data");
+        print("abdo - HyperPay - fireResultToFlutterFailed() - send data");
         if( HyperPayResultData.eventSink == nil ) { return;}
         HyperPayResultData.eventSink!( "failed")
     }
@@ -137,18 +137,18 @@ extension AppDelegate : FlutterStreamHandler {
 
 //--------------------------------------------------- from flutter reciever
 
-extension AppDelegate {
+extension HyperPayPlugin {
     
     func parseDataReceivedFromFlutter( _ jsonData : [String: Any]){
         do {
             let data = try JSONSerialization.data(withJSONObject: jsonData, options: [])
             let decodeRequest = try JSONDecoder().decode(HyperPayChannelRequest.self, from: data)
             HyperPayResultData.request =  decodeRequest;
-            print("hyperpay - parseDataReceivedFromFlutter() - toDictionary:", decodeRequest.toDictionary())
+            print("abdo - hyperpay - parseDataReceivedFromFlutter() - toDictionary:", decodeRequest.toDictionary())
 //            print("hyperpay - parseDataReceivedFromFlutter() -Is Mada:", response.isMada)
             
         } catch {
-            print("hyperpay - parseDataReceivedFromFlutter() - Failed to decode JSON:", error)
+            print("abdo - hyperpay - parseDataReceivedFromFlutter() - Failed to decode JSON:", error)
         }
     }
     
@@ -156,7 +156,7 @@ extension AppDelegate {
 
 //----------------------------------------------------------- open payment
 
-extension AppDelegate {
+extension HyperPayPlugin {
     
     func openUIPaymentByChooseBrandType(){
         
@@ -182,7 +182,7 @@ extension AppDelegate {
     
     
     func _setterConfigHyperPay() {
-        print("hyperpay - _setterConfigHyperPay() - request before: \( HyperPayResultData.request.toDictionary() )");
+        print("abdo - hyperpay - _setterConfigHyperPay() - request before: \( HyperPayResultData.request.toDictionary() )");
         Config.amount = HyperPayResultData.request.amount ;
         Config.merchantId = HyperPayResultData.request.merchantId;
         Config.urlScheme = HyperPayResultData.request.shopperResultUrl;
@@ -195,12 +195,12 @@ extension AppDelegate {
         } else {
             Config.oPPProviderMode = OPPProviderMode.live;
         }
-        print("hyperpay - _setterConfigHyperPay() - Config.oPPProviderMode: \(Config.oPPProviderMode.rawValue)");
-        print("hyperpay - _setterConfigHyperPay() - Config.merchantId: \(Config.merchantId)");
-        print("hyperpay - _setterConfigHyperPay() - Config.checkoutID: \(Config.checkoutID)");
-        print("hyperpay - _setterConfigHyperPay() - Config.amount: \(Config.amount)");
-        print("hyperpay - _setterConfigHyperPay() - Config.urlScheme: \(Config.urlScheme)");
-        print("hyperpay - _setterConfigHyperPay() - Config.paymentButtonBrand: \(Config.paymentButtonBrand)");
+        print("abdo - hyperpay - _setterConfigHyperPay() - Config.oPPProviderMode: \(Config.oPPProviderMode.rawValue)");
+        print("abdo - hyperpay - _setterConfigHyperPay() - Config.merchantId: \(Config.merchantId)");
+        print("abdo - hyperpay - _setterConfigHyperPay() - Config.checkoutID: \(Config.checkoutID)");
+        print("abdo - hyperpay - _setterConfigHyperPay() - Config.amount: \(Config.amount)");
+        print("abdo - hyperpay - _setterConfigHyperPay() - Config.urlScheme: \(Config.urlScheme)");
+        print("abdo - hyperpay - _setterConfigHyperPay() - Config.paymentButtonBrand: \(Config.paymentButtonBrand)");
         
     }
     
@@ -209,13 +209,13 @@ extension AppDelegate {
     func openWithListener(){
         // ui
         let controller: FlutterViewController = window?.rootViewController as! FlutterViewController
-        print("hyperpay - run (RouterHyperPay.open) by FlutterViewController: \( controller )");
+        print("abdo - hyperpay - run (RouterHyperPay.open) by FlutterViewController: \( controller )");
         RouterHyperPay.open(selfVC:   controller, onStatusChanged:  { status in
             if status {
-                print("hyperpay - openWithListener() - Payment success")
+                print("abdo - hyperpay - openWithListener() - Payment success")
                 self.fireResultToFlutterSuccess();
             } else {
-                print("hyperpay - openWithListener() - Payment failed")
+                print("abdo - hyperpay - openWithListener() - Payment failed")
                 self.fireResultToFlutterFailed();
             }
         });

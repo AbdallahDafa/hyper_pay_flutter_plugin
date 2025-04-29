@@ -8,6 +8,10 @@ import UIKit
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
     GeneratedPluginRegistrant.register(with: self)
+
+    // call code in path /root/ios/classes/
+//     setupHyperPay()
+
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
 }
