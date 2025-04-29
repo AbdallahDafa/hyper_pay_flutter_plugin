@@ -8,7 +8,6 @@
 import UIKit
 import OPPWAMobile
 
-
 class HyperPaySingleBrandPromaticallyViewController: UIViewController, OPPCheckoutProviderDelegate {
     
     var checkoutProvider: OPPCheckoutProvider?

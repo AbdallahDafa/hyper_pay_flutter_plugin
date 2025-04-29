@@ -9,15 +9,16 @@ import UIKit
 import Flutter
 import Foundation
 import OPPWAMobile
+ 
 
 //------------------------------------------------------------   data
 
 class HyperPayResultData  {
     
-    static var eventSink: FlutterEventSink?
-    static var data : [String: Any]  = [ : ];
+    nonisolated(unsafe) static var eventSink: FlutterEventSink?
+    nonisolated(unsafe) static var data : [String: Any]  = [ : ];
     
-    static var request : HyperPayChannelRequest = HyperPayChannelRequest();
+    nonisolated(unsafe) static var request : HyperPayChannelRequest = HyperPayChannelRequest();
 }
  
 
@@ -55,41 +56,42 @@ struct HyperPayChannelRequest: Codable {
 
 extension HyperPayPlugin {
 
-    func setupHyperPay(){
+     public func setupHyperPay(){
 
-        _setupSendDataFromSwiftToFlutter();
-        _setupRecieveDataFromFlutter();
+//        _setupSendDataFromSwiftToFlutter();
+//        _setupRecieveDataFromFlutter();
     }
 
-    func _setupSendDataFromSwiftToFlutter(){
-        let controller: FlutterViewController = window?.rootViewController as! FlutterViewController
-
-        let eventChannel = FlutterEventChannel(name: "com.hyperpay/listenFromNative", binaryMessenger: controller.binaryMessenger)
-
-        eventChannel.setStreamHandler(self)
+    @MainActor  func _setupSendDataFromSwiftToFlutter( ){
         print("abdo - HyperPay - _setupSendDataFromSwiftToFlutter() - setup stream");
+//        let controller: FlutterViewController = window?.rootViewController as! FlutterViewController
+//
+//        let eventChannel = FlutterEventChannel(name: "com.hyperpay/listenFromNative", binaryMessenger: controller.binaryMessenger)
+//
+//        eventChannel.setStreamHandler(self)
+//        print("abdo - HyperPay - _setupSendDataFromSwiftToFlutter() - setup stream");
     }
 
 
     func _setupRecieveDataFromFlutter(){
-        let controller: FlutterViewController = window?.rootViewController as! FlutterViewController
-        let channel = FlutterMethodChannel(name: "com.hyperpay/sendToNative", binaryMessenger: controller.binaryMessenger)
-        print("abdo - hyperpay - _setupRecieveDataFromFlutter()- setup")
-        channel.setMethodCallHandler { (call: FlutterMethodCall, result: @escaping FlutterResult) in
-            if call.method == "fromFlutter" {
-                if let args = call.arguments as? [String: Any] {
-                    print("abdo - hyperpay - _setupRecieveDataFromFlutter()- Received from Flutter - args: \(args)")
-                    self.parseDataReceivedFromFlutter(args);
-                    self.openUIPaymentByChooseBrandType();
-                    // Handle it
-                    result("OK")
-                } else {
-                    result(FlutterError(code: "BAD_ARGS", message: "Missing data", details: nil))
-                }
-            } else {
-                result(FlutterMethodNotImplemented)
-            }
-        }
+//        let controller: FlutterViewController = window?.rootViewController as! FlutterViewController
+//        let channel = FlutterMethodChannel(name: "com.hyperpay/sendToNative", binaryMessenger: controller.binaryMessenger)
+//        print("abdo - hyperpay - _setupRecieveDataFromFlutter()- setup")
+//        channel.setMethodCallHandler { (call: FlutterMethodCall, result: @escaping FlutterResult) in
+//            if call.method == "fromFlutter" {
+//                if let args = call.arguments as? [String: Any] {
+//                    print("abdo - hyperpay - _setupRecieveDataFromFlutter()- Received from Flutter - args: \(args)")
+//                    self.parseDataReceivedFromFlutter(args);
+//                    self.openUIPaymentByChooseBrandType();
+//                    // Handle it
+//                    result("OK")
+//                } else {
+//                    result(FlutterError(code: "BAD_ARGS", message: "Missing data", details: nil))
+//                }
+//            } else {
+//                result( "not implemented")
+//            }
+//        }
     }
 
 
@@ -100,7 +102,7 @@ extension HyperPayPlugin {
 
 extension HyperPayPlugin : FlutterStreamHandler {
     
-    func onListen(withArguments arguments: Any?, eventSink events: @escaping FlutterEventSink) -> FlutterError? {
+    public func onListen(withArguments arguments: Any?, eventSink events: @escaping FlutterEventSink) -> FlutterError? {
         HyperPayResultData.eventSink = events
 
 //          // Example: send data every 2 seconds
@@ -114,7 +116,7 @@ extension HyperPayPlugin : FlutterStreamHandler {
           return nil
       }
 
-      func onCancel(withArguments arguments: Any?) -> FlutterError? {
+      public func onCancel(withArguments arguments: Any?) -> FlutterError? {
           HyperPayResultData.eventSink = nil
           return nil
       }
@@ -208,17 +210,17 @@ extension HyperPayPlugin {
     
     func openWithListener(){
         // ui
-        let controller: FlutterViewController = window?.rootViewController as! FlutterViewController
-        print("abdo - hyperpay - run (RouterHyperPay.open) by FlutterViewController: \( controller )");
-        RouterHyperPay.open(selfVC:   controller, onStatusChanged:  { status in
-            if status {
-                print("abdo - hyperpay - openWithListener() - Payment success")
-                self.fireResultToFlutterSuccess();
-            } else {
-                print("abdo - hyperpay - openWithListener() - Payment failed")
-                self.fireResultToFlutterFailed();
-            }
-        });
+//        let controller: FlutterViewController = window?.rootViewController as! FlutterViewController
+//        print("abdo - hyperpay - run (RouterHyperPay.open) by FlutterViewController: \( controller )");
+//        RouterHyperPay.open(selfVC:   controller, onStatusChanged:  { status in
+//            if status {
+//                print("abdo - hyperpay - openWithListener() - Payment success")
+//                self.fireResultToFlutterSuccess();
+//            } else {
+//                print("abdo - hyperpay - openWithListener() - Payment failed")
+//                self.fireResultToFlutterFailed();
+//            }
+//        });
     }
     
     
