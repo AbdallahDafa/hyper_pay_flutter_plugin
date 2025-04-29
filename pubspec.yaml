@@ -25,9 +25,9 @@ dependencies:
   plugin_platform_interface: ^2.0.2
 
 
-  #----------------------------- make the example  as plugin code
-  hyper_pay_payment_example:
-    path: example
+  #----------------------------- this code may needed in run on xcode
+#  hyper_pay_payment_example:
+#    path: example
 
 flutter:
   plugin:
