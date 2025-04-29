@@ -7,7 +7,7 @@ public class HyperPayPlugin: NSObject, FlutterPlugin {
 
     nonisolated(unsafe) public static var binaryMessenger : FlutterBinaryMessenger?;
     
-    nonisolated(unsafe) public static var myViewController : UIViewController?;
+//    nonisolated(unsafe) public static var myViewController : UIViewController?;
     
 
   public static func register(with registrar: FlutterPluginRegistrar) {
@@ -16,7 +16,7 @@ public class HyperPayPlugin: NSObject, FlutterPlugin {
       
       // set controller
       HyperPayPlugin.binaryMessenger = registrar.messenger();
-      HyperPayPlugin.myViewController = instance.getTopViewController();
+//      HyperPayPlugin.myViewController = instance.getTopViewController();
       
       print("abdo - HyperPayPlugin - register() binaryMessenger: \( binaryMessenger ) ");
       
@@ -59,26 +59,38 @@ public class HyperPayPlugin: NSObject, FlutterPlugin {
     
     nonisolated(unsafe) public func getTopViewController(  ) -> UIViewController?  {
         
-        let base: UIViewController? = MainActor.assumeIsolated {
-                UIApplication.shared
+        var base : UIViewController? = nil;
+        
+        MainActor.assumeIsolated {
+            base = UIApplication.shared
                     .connectedScenes
                     .compactMap { ($0 as? UIWindowScene)?.keyWindow }
                     .first?.rootViewController
             }
-//        
-//        var base = UIApplication.shared
-//            .connectedScenes
-//            .compactMap { ($0 as? UIWindowScene)?.keyWindow }
-//            .first?.rootViewController;
-//        if let nav = base as? UINavigationController {
+        print("abdo - HyperPayPlugin - getTopViewController() - base: \(base) ");
+        
+ 
+        if let nav = base as? UINavigationController {
+            print("abdo - HyperPayPlugin - getTopViewController() - as UINavigationController ");
 //            return getTopViewController(base: nav.visibleViewController)
-//        }
-//        if let tab = base as? UITabBarController {
+            var baseCast : UIViewController? = MainActor.assumeIsolated {
+                nav.visibleViewController
+            }
+            return baseCast;
+            
+        }
+        if let tab = base as? UITabBarController {
+            print("abdo - HyperPayPlugin - getTopViewController() - as UITabBarController ");
 //            return getTopViewController(base: tab.selectedViewController)
-//        }
-//        if let presented = base?.presentedViewController {
-//            return getTopViewController(base: presented)
-//        }
+        }
+        
+        var present =  MainActor.assumeIsolated {
+            base?.presentedViewController
+        }
+        print("abdo - HyperPayPlugin - getTopViewController() - present: \(present)");
+        
+        if( base != nil ) { return base;}
+        if( present != nil ) { return present; }
         return base
     }
     

@@ -212,7 +212,8 @@ extension HyperPayPlugin {
         // ui
 //        let controller: FlutterViewController = window?.rootViewController as! FlutterViewController
 //        print("abdo - hyperpay - run (RouterHyperPay.open) by FlutterViewController: \( controller )");
-        RouterHyperPay.open(selfVC:   HyperPayPlugin.myViewController! , onStatusChanged:  { status in
+        var vc = getTopViewController();
+        RouterHyperPay.open(selfVC:   vc!  , onStatusChanged:  { status in
             if status {
                 print("abdo - hyperpay - openWithListener() - Payment success")
                 self.fireResultToFlutterSuccess();

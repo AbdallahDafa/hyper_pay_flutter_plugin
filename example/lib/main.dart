@@ -64,10 +64,6 @@ class _MyAppState extends State<MyApp> {
               ),
               onTap: () async {
 
-
-                  // result = await HyperPayPayment.getPlatformVersion();
-                  // setState(()   {});
-
                 await visaPayment();
 
               },
@@ -96,7 +92,7 @@ class _MyAppState extends State<MyApp> {
     channelRequest.shopperResultUrl =   "com.tuxedo.dafa.payment";  //contact hyperpay support to get merchantId
     channelRequest.merchantId =  "merchant.com.tuxedo.dafa";  //contact hyperpay support to get merchantId
     channelRequest.brandName = "VISA";
-    channelRequest.checkoutId = "50797B004CC64A2003A2EFC442205E34.prod02-vm-tx11"; //get from your server side
+    channelRequest.checkoutId = "B6C5B5F146CE4C32086E55EA69D7E8B5.prod02-vm-tx05"; //get from your server side
     channelRequest.amount =  1;
     channelRequest.isTest = false ; //false means it's live
 
