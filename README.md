@@ -16,9 +16,9 @@
 
 -----
 
+# GET START Hyper Pay Payment 
 
-
-## Config Gradle
+## Android Config
 
 * Add JitPack to your build.gradle (Project-level) line :
 ```
@@ -51,6 +51,40 @@ dependencyResolutionManagement {
 
 ```
  
+-----
+
+-----
+ 
+## IOS Configuration
+
+### VISA/MADA/MASTER
+
+1- edit podfile :
+
+```
+platform :ios, '15.0'
+```
+
+2- cd projectPathFolder/ios/
+```
+
+rm -rf Podfile.lock Pods
+pod install
+
+```
+
+3- cd flutter project/
+```
+
+flutter clean
+flutter pub get
+
+```
+
+### APPLEPAY :
+
+* enable apple pay capliplitys and follow certificate
+
 
 -----
 
@@ -114,9 +148,7 @@ dependencyResolutionManagement {
   <img src="https://github.com/AbdallahDafa/hyper_pay_flutter_plugin/blob/main/screenshot/iphone-2.png?raw=true" alt="Image 2" width="200" />
   <img src="https://github.com/AbdallahDafa/hyper_pay_flutter_plugin/blob/main/screenshot/iphone-3.png?raw=true" alt="Image 3" width="200" />
 </div>
-
-
-## coming soon
+ 
 
 -----
 
