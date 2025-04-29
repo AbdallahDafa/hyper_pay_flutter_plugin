@@ -56,20 +56,18 @@ struct HyperPayChannelRequest: Codable {
 
 extension HyperPayPlugin {
 
-     public func setupHyperPay(){
-
-//        _setupSendDataFromSwiftToFlutter();
+    public func setupHyperPay(){
+        print("abdo - HyperPay - setupHyperPay() - start");
+        _setupSendDataFromSwiftToFlutter();
 //        _setupRecieveDataFromFlutter();
     }
 
-    @MainActor  func _setupSendDataFromSwiftToFlutter( ){
+    func _setupSendDataFromSwiftToFlutter( ){
+        let eventChannel = FlutterEventChannel(name: "com.hyperpay/listenFromNative",
+                                               binaryMessenger: HyperPayPlugin.binaryMessenger!
+        )
+        eventChannel.setStreamHandler(self)
         print("abdo - HyperPay - _setupSendDataFromSwiftToFlutter() - setup stream");
-//        let controller: FlutterViewController = window?.rootViewController as! FlutterViewController
-//
-//        let eventChannel = FlutterEventChannel(name: "com.hyperpay/listenFromNative", binaryMessenger: controller.binaryMessenger)
-//
-//        eventChannel.setStreamHandler(self)
-//        print("abdo - HyperPay - _setupSendDataFromSwiftToFlutter() - setup stream");
     }
 
 
