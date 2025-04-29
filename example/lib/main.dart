@@ -39,7 +39,21 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Center(
           child:  Column(children: [
+            SizedBox( height: 20 ,),
+            GestureDetector(
+              child:  Container(
+                color: Colors.grey,
+                padding: EdgeInsets.all(10 ),
+                child: Text("Check Connection Between Dart And Native"),
+              ),
+              onTap: () async {
 
+
+                result = await HyperPayPayment.getPlatformVersion();
+                setState(()   {});
+
+              },
+            ),
 
             SizedBox( height: 20 ,),
             GestureDetector(
@@ -51,36 +65,10 @@ class _MyAppState extends State<MyApp> {
               onTap: () async {
 
 
-                  result = await HyperPayPayment.getPlatformVersion();
-                  setState(()   {});
+                  // result = await HyperPayPayment.getPlatformVersion();
+                  // setState(()   {});
 
-                /**
-                 *
-
-
-                    /// init request channel
-                    var channelRequest = HyperpayChannelRequest ( );
-                    channelRequest.shopperResultUrl =   "com.tuxedo.dafa.payment";  //contact hyperpay support to get merchantId
-                    channelRequest.merchantId =  "merchant.com.tuxedo.dafa";  //contact hyperpay support to get merchantId
-                    channelRequest.brandName = "VISA";
-                    channelRequest.checkoutId = "50797B004CC64A2003A2EFC442205E34.prod02-vm-tx11"; //get from your server side
-                    channelRequest.amount =  1;
-                    channelRequest.isTest = false ; //false means it's live
-
-                    await HyperPayPayment.newPayment(
-                    channelRequest : channelRequest,
-                    onComplete: (bool isSuccess) {
-
-                    setState(() {
-                    isPaymentSuccess = isSuccess;
-                    });
-                    } );
-
-
-
-                 */
-
-
+                await visaPayment();
 
               },
             ),
@@ -88,7 +76,7 @@ class _MyAppState extends State<MyApp> {
 
             /// result
             if(result !=  "" ) Text( result ,
-              style: TextStyle( color: Colors.yellow),),
+              style: TextStyle( color: Colors.blue),),
 
             /// status
             if( isPaymentSuccess != null && isPaymentSuccess == true )Text( "Payment success, need to check status in your server side" ,
@@ -100,6 +88,27 @@ class _MyAppState extends State<MyApp> {
         ),
       ),
     );
+  }
+
+  visaPayment() async {
+    /// init request channel
+    var channelRequest = HyperpayChannelRequest ( );
+    channelRequest.shopperResultUrl =   "com.tuxedo.dafa.payment";  //contact hyperpay support to get merchantId
+    channelRequest.merchantId =  "merchant.com.tuxedo.dafa";  //contact hyperpay support to get merchantId
+    channelRequest.brandName = "VISA";
+    channelRequest.checkoutId = "50797B004CC64A2003A2EFC442205E34.prod02-vm-tx11"; //get from your server side
+    channelRequest.amount =  1;
+    channelRequest.isTest = false ; //false means it's live
+
+    await HyperPayPayment.newPayment(
+        channelRequest : channelRequest,
+        onComplete: (bool isSuccess) {
+
+          setState(() {
+            isPaymentSuccess = isSuccess;
+          });
+        } );
+
   }
 
 
