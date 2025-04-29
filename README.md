@@ -109,6 +109,13 @@ dependencyResolutionManagement {
 
 * IPhone Visa Screens :
 
+<div style="display: flex; gap: 10px;">
+  <img src="https://github.com/AbdallahDafa/hyper_pay_flutter_plugin/blob/main/screenshot/iphone-1.png?raw=true" alt="Image 1" width="200" />
+  <img src="https://github.com/AbdallahDafa/hyper_pay_flutter_plugin/blob/main/screenshot/iphone-2.png?raw=true" alt="Image 2" width="200" />
+  <img src="https://github.com/AbdallahDafa/hyper_pay_flutter_plugin/blob/main/screenshot/iphone-3.png?raw=true" alt="Image 3" width="200" />
+</div>
+
+
 ## coming soon
 
 -----
@@ -151,13 +158,7 @@ dependencyResolutionManagement {
 ### Step Three : Check Status Of Payment
 
 * call your server side to check after completed payment, if this checkout id is completed and success charge money or not.
-
-### Screenshot Apple Pay Payment
-
-* IPhone Apple Pay Screens :
-
-## coming soon
-
+ 
 
 -----
 
