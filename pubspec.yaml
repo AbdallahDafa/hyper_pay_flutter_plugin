@@ -25,13 +25,6 @@ dependencies:
   plugin_platform_interface: ^2.0.2
 
 
-  #----------------------------- cas flutter need to run ios example project as application
-  hyper_pay_payment_example:
-    path: example
-
-
-#----------------------------- cas flutter plugin when publish uncomment this code
-
 flutter:
   plugin:
     platforms:
