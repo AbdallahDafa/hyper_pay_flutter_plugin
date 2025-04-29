@@ -12,10 +12,15 @@ class RouterHyperPay {
     
     
     public static func open(selfVC : UIViewController, onStatusChanged: @escaping (Bool) -> Void  ) {
-//        let vc = HyperPaySingleBrandPromaticallyViewController()
-//        vc.modalPresentationStyle = .overFullScreen
-//        vc.onStatusChanged = onStatusChanged;
-//        selfVC.present(vc, animated: true, completion: nil)
+        
+        HyperPaySingleBrandPromaticallyData.onStatusChanged = onStatusChanged;
+        
+        MainActor.assumeIsolated {
+            let vc = HyperPaySingleBrandPromaticallyViewController()
+            vc.modalPresentationStyle = .overFullScreen 
+            selfVC.present(vc, animated: true, completion: nil)
+        }
+        
     }
 
 

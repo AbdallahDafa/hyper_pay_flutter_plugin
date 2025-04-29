@@ -8,6 +8,13 @@
 import UIKit
 import OPPWAMobile
 
+/// listener
+class HyperPaySingleBrandPromaticallyData {
+    
+    nonisolated(unsafe) static var onStatusChanged: ((Bool) -> Void)?
+}
+
+
 class HyperPaySingleBrandPromaticallyViewController: UIViewController, OPPCheckoutProviderDelegate {
     
     var checkoutProvider: OPPCheckoutProvider?
@@ -16,8 +23,7 @@ class HyperPaySingleBrandPromaticallyViewController: UIViewController, OPPChecko
     var paymentButton   = OPPPaymentButton();
     
     
-    /// listener
-    var onStatusChanged: ((Bool) -> Void)?
+ 
     
     //------------------------------------------------------ transparent shape
     
@@ -42,7 +48,7 @@ class HyperPaySingleBrandPromaticallyViewController: UIViewController, OPPChecko
     
     @objc func dismissSelfTouchScreen() {
          dismiss(animated: true, completion: nil)
-        self.onStatusChanged?(false)
+        HyperPaySingleBrandPromaticallyData.onStatusChanged?(false)
      }
     
     
@@ -100,11 +106,11 @@ class HyperPaySingleBrandPromaticallyViewController: UIViewController, OPPChecko
            
            if( error != nil  ){
                self.dismissSelf()
-               self.onStatusChanged?(false)
+               HyperPaySingleBrandPromaticallyData.onStatusChanged?(false)
                return;
            } else  {
                self.dismissSelf()
-               self.onStatusChanged?(true )
+               HyperPaySingleBrandPromaticallyData.onStatusChanged?(true )
            }
  
            
@@ -112,7 +118,7 @@ class HyperPaySingleBrandPromaticallyViewController: UIViewController, OPPChecko
            
            print("abdo - paymentButtonAction - cancelHandler");
            self.dismissSelf()
-           self.onStatusChanged?(false)
+           HyperPaySingleBrandPromaticallyData.onStatusChanged?(false)
        })
        
        
