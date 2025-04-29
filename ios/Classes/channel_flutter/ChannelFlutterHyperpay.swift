@@ -59,7 +59,7 @@ extension HyperPayPlugin {
      public func setupHyperPay(){
         print("abdo - HyperPay - setupHyperPay() - start");
         _setupSendDataFromSwiftToFlutter();
-//        _setupRecieveDataFromFlutter();
+        _setupRecieveDataFromFlutter();
     }
 
     
@@ -67,8 +67,6 @@ extension HyperPayPlugin {
         let eventChannel = FlutterEventChannel(name: "com.hyperpay/listenFromNative",
                                                binaryMessenger: HyperPayPlugin.binaryMessenger!
         )
-        //eventChannel.setStreamHandler(self)
-         
          eventChannel.setStreamHandler(self)
         print("abdo - HyperPay - _setupSendDataFromSwiftToFlutter() - setup stream");
     }

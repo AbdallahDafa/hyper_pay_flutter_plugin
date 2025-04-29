@@ -38,8 +38,8 @@ public class HyperPayPlugin: NSObject, FlutterPlugin {
            result("iOS getPlatformVersion from swift native to flutter" )
 
     case "fromFlutter" :
-       setupHyperPay();
         print("abdo - HyperPayPlugin - method - fromFlutter -");
+       setupHyperPay();
         result("iOS fromFlutter" )
         default:
             result( "no implementation found")
