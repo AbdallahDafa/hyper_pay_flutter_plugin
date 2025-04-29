@@ -37,6 +37,16 @@ target 'Runner' do
   end
 end
 
+
+
+#-----------------------------------------   hyperpay native (type: import github files )
+
+pod 'hyperpay-dafa-sdk-pod-installer-git-repository',
+ :git => 'https://github.com/AbdallahDafa/hyperpay-dafa-sdk-pod-installer-git-repository',
+ :tag => '1.0.9'
+
+#-----------------------------------------
+
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     flutter_additional_ios_build_settings(target)
