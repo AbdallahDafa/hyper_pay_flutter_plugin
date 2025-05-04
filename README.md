@@ -65,21 +65,23 @@ dependencyResolutionManagement {
 platform :ios, '15.0'
 ```
 
-2- cd projectPathFolder/ios/
-```
-
-rm -rf Podfile.lock Pods
-pod install
-
-```
-
-3- cd flutter project/
+2- cd flutter project/
 ```
 
 flutter clean
 flutter pub get
 
 ```
+
+3- cd projectPathFolder/ios/
+```
+
+rm -rf Podfile.lock Pods
+pod install
+ pod install --repo-update
+
+```
+
 
 ### APPLEPAY :
 
