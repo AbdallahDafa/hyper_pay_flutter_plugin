@@ -1,4 +1,4 @@
-## 1.0.5
+## 1.0.6
 
 * Run On IOS Iphone : VISA/Master/MADA/ApplePay.
 
