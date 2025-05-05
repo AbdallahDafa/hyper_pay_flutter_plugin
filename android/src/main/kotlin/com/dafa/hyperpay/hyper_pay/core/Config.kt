@@ -20,6 +20,7 @@ object Config {
      * case single brand
      * //linkedSetOf("VISA" )
      */
-    var PAYMENT_BRANDS =  linkedSetOf(   )
+    var PAYMENT_BRANDS =  linkedSetOf<String>()
+
 
 }
