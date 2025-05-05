@@ -63,10 +63,11 @@ public class HyperPayPlugin: NSObject, FlutterPlugin {
         
         MainActor.assumeIsolated {
             base = UIApplication.shared
-                    .connectedScenes
-                    .compactMap { ($0 as? UIWindowScene)?.keyWindow }
-                    .first?.rootViewController
-            }
+                .connectedScenes
+                .compactMap { $0 as? UIWindowScene }
+                .flatMap { $0.windows }
+                .first { $0.isKeyWindow }?.rootViewController
+        }
         print("abdo - HyperPayPlugin - getTopViewController() - base: \(base) ");
         
  

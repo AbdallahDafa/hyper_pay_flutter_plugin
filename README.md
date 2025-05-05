@@ -89,6 +89,10 @@ pod install --repo-update
 
 4- edit podfile :
 
+* set the source of pods is  CocoaPods trunks, by write this in first lines in podfile
+```
+source 'https://github.com/CocoaPods/Specs.git' 
+```
 * set ios target in first line of podfile
 ```
 platform :ios, '15.0'
