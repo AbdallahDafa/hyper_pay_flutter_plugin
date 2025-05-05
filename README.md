@@ -131,11 +131,6 @@ end
 ```
 
 * after adding schema you also need flutter clean second time
-
-
-### APPLEPAY :
-
-* enable apple pay capliplitys and follow certificate 
 * cd flutter project/
 ```
 
@@ -149,13 +144,17 @@ flutter pub get
 ```
 pod install
 ```
+
 6- remove app by uninstall from your device
 
------
+
+### APPLEPAY  Config:
+
+* enable apple pay Capabilities and follow certificate 
 
 -----
 
-
+-----
 
 ## Create Payment Type :  VISA/MASTER/MADA
 
