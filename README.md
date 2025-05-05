@@ -315,11 +315,10 @@ SOFTWARE.
 
 # Company Dafa.sa
 
-
 <table>
   <tr>
     <td>
-      <img src="/screenshot/dev-abdallah.png" alt="App Preview" width="80"/>
+      <img src="https://github.com/AbdallahDafa/hyper_pay_flutter_plugin/blob/main/screenshot/dev-abdallah.png?raw=true" alt="App Preview" width="80"/>
     </td>
     <td>
       <h3>Created by<br/>Developer Abdallah Mahmoud<br/>
