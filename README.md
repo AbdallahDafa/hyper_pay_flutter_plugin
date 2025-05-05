@@ -59,10 +59,9 @@ dependencyResolutionManagement {
 
 ### VISA/MADA/MASTER
 
-1- edit podfile :
-
+1- update cocoapods 
 ```
-platform :ios, '15.0'
+sudo gem install cocoapods
 ```
 
 2- cd flutter project/
@@ -88,7 +87,14 @@ rm -rf Podfile.lock Pods
 pod install --repo-update
 ```
 
-4- in podfile make target is ios 15
+4- edit podfile :
+
+* set ios target in first line of podfile
+```
+platform :ios, '15.0'
+```
+
+* set at last line of file podfile:
 ```  
 post_install do |installer|
   installer.pods_project.targets.each do |target|

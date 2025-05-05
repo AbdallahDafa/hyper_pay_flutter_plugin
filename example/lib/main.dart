@@ -39,6 +39,9 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Center(
           child:  Column(children: [
+
+            ///--------------------------- check connection
+
             SizedBox( height: 20 ,),
             GestureDetector(
               child:  Container(
@@ -55,21 +58,42 @@ class _MyAppState extends State<MyApp> {
               },
             ),
 
+            ///--------------------------- Auto detect
             SizedBox( height: 20 ,),
             GestureDetector(
               child:  Container(
                 color: Colors.grey,
                 padding: EdgeInsets.all(10 ),
-                child: Text("Visa"),
+                child: Text("Ready Use UI Auto Detect Brand Type"),
               ),
               onTap: () async {
 
-                await visaPayment();
+                await autoDetectBrandType();
 
               },
             ),
-            SizedBox( height: 20 ,),
 
+
+            ///--------------------------- single Brand visa
+            ///
+            SizedBox( height: 20 ,),
+            GestureDetector(
+              child:  Container(
+                color: Colors.grey,
+                padding: EdgeInsets.all(10 ),
+                child: Text("Single Payment Button Visa Only"),
+              ),
+              onTap: () async {
+
+                await singleBrandTypeVisa();
+
+              },
+            ),
+
+
+            ///----------------------------- result
+
+            SizedBox( height: 20 ,),
             /// result
             if(result !=  "" ) Text( result ,
               style: TextStyle( color: Colors.blue),),
@@ -86,12 +110,33 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
-  visaPayment() async {
+  singleBrandTypeVisa() async {
     /// init request channel
     var channelRequest = HyperpayChannelRequest ( );
     channelRequest.shopperResultUrl =   "com.tuxedo.dafa.payment";  //contact hyperpay support to get merchantId
     channelRequest.merchantId =  "merchant.com.tuxedo.dafa";  //contact hyperpay support to get merchantId
     channelRequest.brandName = "VISA";
+    channelRequest.checkoutId = "B6C5B5F146CE4C32086E55EA69D7E8B5.prod02-vm-tx05"; //get from your server side
+    channelRequest.amount =  1;
+    channelRequest.isTest = false ; //false means it's live
+
+    await HyperPayPayment.newPayment(
+        channelRequest : channelRequest,
+        onComplete: (bool isSuccess) {
+
+          setState(() {
+            isPaymentSuccess = isSuccess;
+          });
+        } );
+
+  }
+
+
+  autoDetectBrandType() async {
+    /// init request channel
+    var channelRequest = HyperpayChannelRequest ( );
+    channelRequest.shopperResultUrl =   "com.tuxedo.dafa.payment";  //contact hyperpay support to get merchantId
+    channelRequest.merchantId =  "merchant.com.tuxedo.dafa";  //contact hyperpay support to get merchantId
     channelRequest.checkoutId = "B6C5B5F146CE4C32086E55EA69D7E8B5.prod02-vm-tx05"; //get from your server side
     channelRequest.amount =  1;
     channelRequest.isTest = false ; //false means it's live

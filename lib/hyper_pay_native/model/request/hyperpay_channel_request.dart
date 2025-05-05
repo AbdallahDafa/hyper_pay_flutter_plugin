@@ -16,13 +16,18 @@ class HyperpayChannelRequest {
       'checkoutId': checkoutId,
       'isTest': isTest,
       'amount': amount,
-      'brandName': brandName,
+      'brandName': _getBrandNameOrAutoDetect(),
       "isMada" : isMada()
     };
   }
 
   bool isMada() {
     return brandName?[0] ==   "MADA";
+  }
+
+  _getBrandNameOrAutoDetect() {
+    if(brandName == null || brandName == "" ) return "auto";
+    return brandName;
   }
 
 

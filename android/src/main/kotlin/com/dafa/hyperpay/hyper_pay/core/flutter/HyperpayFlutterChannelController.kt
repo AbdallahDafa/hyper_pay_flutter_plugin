@@ -33,7 +33,13 @@ object HyperpayFlutterChannelController {
         this.request = request;
         this.activityCompat = activityCompat;
 
-        setConfigByRequestInfo();
+        if( request.brandName == "auto") {
+            setConfigByRequestInfoTypeAutoDetectBrandMethod();
+        } else  {
+            setConfigByRequestInfoTypeSingleBrandMethod();
+
+        }
+
         setterActivityResult();
     }
 
@@ -56,17 +62,20 @@ object HyperpayFlutterChannelController {
 
 
     fun showCheckoutUI() {
+//        if( request.brandName == "auto") {
+//            request.brandName = null;
+//        }
         val checkoutSettings = getCreateCheckoutSettings();
         checkoutLauncher.launch( checkoutSettings );
     }
 
 
-    //---------------------------------------------------------------------- private method
+    //----------------------------------------------------------------------  choose type brand
 
 
-    private fun setConfigByRequestInfo() {
+    private fun setConfigByRequestInfoTypeSingleBrandMethod() {
         Config.CHECKOUT_ID = request.checkoutId ;
-        Config.PAYMENT_BUTTON_BRAND = request.brandName;
+        Config.PAYMENT_BUTTON_BRAND = request.brandName!!;
         Config.PAYMENT_BRANDS =  linkedSetOf( request.brandName ) ;
         if(request.isLive ) {
             Config.mode =     Connect.ProviderMode.LIVE;
@@ -75,6 +84,19 @@ object HyperpayFlutterChannelController {
         }
     }
 
+    private fun setConfigByRequestInfoTypeAutoDetectBrandMethod(){
+        Config.CHECKOUT_ID = request.checkoutId ;
+        Config.PAYMENT_BUTTON_BRAND =  "";
+        Config.PAYMENT_BRANDS =  linkedSetOf(   ) ;
+        if(request.isLive ) {
+            Config.mode =     Connect.ProviderMode.LIVE;
+        } else {
+            Config.mode =     Connect.ProviderMode.TEST;
+        }
+    }
+
+
+    //----------------------------------------------------------------------  setter
 
     private fun setterActivityResult() {
         checkoutLauncher   =     activityCompat.registerForActivityResult(
@@ -86,8 +108,9 @@ object HyperpayFlutterChannelController {
 
     private fun getCreateCheckoutSettings(  ): CheckoutSettings {
         var checkoutSettings =  CheckoutSettings(
-            Config.CHECKOUT_ID,  Config.PAYMENT_BRANDS,
-            Config.mode) //Connect.ProviderMode.TEST
+            Config.CHECKOUT_ID,
+            Config.PAYMENT_BRANDS,
+            Config.mode)
             .setSkipCVVMode(CheckoutSkipCVVMode.FOR_STORED_CARDS)
 //            .setGooglePayPaymentDataRequestJson(getGooglePayPaymentDataRequestJson())
 
@@ -97,7 +120,11 @@ object HyperpayFlutterChannelController {
                     activityCompat.packageName, CheckoutBroadcastReceiver::class.java.name)
             )
         checkoutSettings.isTotalAmountRequired = true  //show price with button
-        checkoutSettings.setPaymentButtonBrand( Config.PAYMENT_BUTTON_BRAND )
+
+        if( request.brandName != "auto") {
+            checkoutSettings.setPaymentButtonBrand( Config.PAYMENT_BUTTON_BRAND )
+        }
+
         Log.i("abdo", "setupHyperpayFromDocs() - checkoutSettings:  " +  checkoutSettings  );
         Log.i("abdo","getCreateCheckoutSettings() - checkoutId: " + Config.CHECKOUT_ID);
         Log.i("abdo","getCreateCheckoutSettings() - setComponentName.ComponentName: " + activityCompat.packageName);
