@@ -247,16 +247,17 @@ SOFTWARE.
 
 # Company Dafa.sa
 
-* Created by Developer  Abdallah Mahmoud <abdallah.mahmoud.dev@gmail.com>  at dafa company
-  
-<img src="https://github.com/AbdallahDafa/hyper_pay_flutter_plugin/blob/main/screenshot/dev-abdallah.png?raw=true" alt="Image 1" width="80" />
 
-<p align="start">
-  <img src="/screenshot/dev-abdallah.png" alt="App Preview" width="300"/>
-</p>
-<p align="center">
-  <img src="./screenshot/dev-abdallah.png" alt="App Preview" width="300"/>
-</p>
-<p align="left">
-  <img src="screenshot/dev-abdallah.png" alt="App Preview" width="300"/>
-</p>
+<table>
+  <tr>
+    <td>
+      <img src="/screenshot/dev-abdallah.png" alt="App Preview" width="80"/>
+    </td>
+    <td>
+      <h3>Created by<br/>Developer Abdallah Mahmoud<br/>
+      <a href="mailto:abdallah.mahmoud.dev@gmail.com">abdallah.mahmoud.dev@gmail.com</a><br/>
+      at dafa company</h3>
+    </td>
+  </tr>
+</table>
+ 
