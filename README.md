@@ -251,12 +251,12 @@ SOFTWARE.
   
 <img src="https://github.com/AbdallahDafa/hyper_pay_flutter_plugin/blob/main/screenshot/dev-abdallah.png?raw=true" alt="Image 1" width="80" />
 
-<p align="center">
+<p align="start">
   <img src="/screenshot/dev-abdallah.png" alt="App Preview" width="300"/>
 </p>
 <p align="center">
   <img src="./screenshot/dev-abdallah.png" alt="App Preview" width="300"/>
 </p>
-<p align="center">
+<p align="left">
   <img src="screenshot/dev-abdallah.png" alt="App Preview" width="300"/>
 </p>
