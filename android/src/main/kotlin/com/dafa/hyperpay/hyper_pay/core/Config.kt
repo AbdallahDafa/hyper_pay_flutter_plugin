@@ -13,6 +13,13 @@ object Config {
     var PAYMENT_BUTTON_BRAND = "" //example "VISA" in type single brand method
 
     // the payment brands for Ready-to-Use UI and Payment Button
-    var PAYMENT_BRANDS =  linkedSetOf( PAYMENT_BUTTON_BRAND ) //linkedSetOf("VISA", "MASTER", "MADA", "GOOGLEPAY")
+    /**
+     * case auto detect
+     * //linkedSetOf("VISA", "MASTER", "MADA", "GOOGLEPAY")
+     *
+     * case single brand
+     * //linkedSetOf("VISA" )
+     */
+    var PAYMENT_BRANDS =  linkedSetOf(   )
 
 }

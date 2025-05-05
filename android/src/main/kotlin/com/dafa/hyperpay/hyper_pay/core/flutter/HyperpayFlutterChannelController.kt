@@ -87,7 +87,7 @@ object HyperpayFlutterChannelController {
     private fun setConfigByRequestInfoTypeAutoDetectBrandMethod(){
         Config.CHECKOUT_ID = request.checkoutId ;
         Config.PAYMENT_BUTTON_BRAND =  "";
-        Config.PAYMENT_BRANDS =  linkedSetOf(   ) ;
+        Config.PAYMENT_BRANDS =  linkedSetOf("VISA", "MASTER", "MADA" )
         if(request.isLive ) {
             Config.mode =     Connect.ProviderMode.LIVE;
         } else {
