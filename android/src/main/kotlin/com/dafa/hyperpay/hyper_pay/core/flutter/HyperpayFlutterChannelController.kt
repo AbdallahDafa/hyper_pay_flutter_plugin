@@ -75,7 +75,7 @@ object HyperpayFlutterChannelController {
 
     private fun setConfigByRequestInfoTypeSingleBrandMethod() {
         Config.CHECKOUT_ID = request.checkoutId ;
-        Config.PAYMENT_BUTTON_BRAND = request.brandName!!;
+        Config.PAYMENT_BUTTON_BRAND = request.brandName;
         Config.PAYMENT_BRANDS =  linkedSetOf( request.brandName ) ;
         if(request.isLive ) {
             Config.mode =     Connect.ProviderMode.LIVE;
