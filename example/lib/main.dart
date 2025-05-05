@@ -137,7 +137,7 @@ class _MyAppState extends State<MyApp> {
     var channelRequest = HyperpayChannelRequest ( );
     channelRequest.shopperResultUrl =   "com.tuxedo.dafa.payment";  //contact hyperpay support to get merchantId
     channelRequest.merchantId =  "merchant.com.tuxedo.dafa";  //contact hyperpay support to get merchantId
-    channelRequest.checkoutId = "52D771DC9C09B75F9C00F5CB236D95FB.uat01-vm-tx01"; //get from your server side
+    channelRequest.checkoutId = "C0F016426EE592EA1FA5B1ECA28EF5A0.uat01-vm-tx04"; //get from your server side
     channelRequest.amount =  1;
     channelRequest.isTest = true ; //false means it's live
 

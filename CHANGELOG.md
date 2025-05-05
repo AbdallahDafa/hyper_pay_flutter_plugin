@@ -1,3 +1,9 @@
+## 1.0.8
+
+* downgrade to use ios target min is 13.0 instead of 15.0
+* This downgrade of ios target, to fixing almost of plugin flutter is working on ios target 13, 
+  to fix compatible version
+
 ## 1.0.7
 
 * Feature Ready UI Auto Detect Brand Type ( Master, Visa, Mada )
