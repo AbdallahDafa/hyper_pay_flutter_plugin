@@ -124,7 +124,28 @@ end
 
 #### Payment Method : VISA/MASTER/MADA 
 
-* code dart :
+##### Case : Auto Detect Brand Type:
+```dart
+                /// init request channel
+                var channelRequest = HyperpayChannelRequest ( );
+                channelRequest.shopperResultUrl =   "com.example.myapp.payment";  //contact hyperpay support to get merchantId
+                channelRequest.merchantId =  "merchant.com.example.myapp";  //contact hyperpay support to get merchantId 
+                channelRequest.checkoutId = "**************"; //get from your server side 
+                channelRequest.amount =  1;
+                channelRequest.isTest = false ; //false means it's live
+
+                await HyperPayPayment.newPayment(channelRequest : channelRequest, onComplete: (bool isSuccess) {
+
+                  setState(() {
+                    isPaymentSuccess = isSuccess;
+                  });
+
+                } );
+```
+
+##### Case : Choose Single Brand Type:
+* set the of "brandName" to one of documentation types.
+* Example validate to enter Visa number
 ```dart
                 /// init request channel
                 var channelRequest = HyperpayChannelRequest ( );
