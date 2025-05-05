@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.license          = { :type => 'MIT', :file => 'LICENSE.txt' }
   s.author           = { 'Abdallah Mahmoud' => 'abdallah.mahmoud.dev@gmail.com' }
   s.source           = { :path => '.' }
-  s.source_files = 'Classes/**/*', 'Classes/channel_flutter/ChannelFlutterHyperpay.swift'
+  s.source_files = 'Classes/**/*', 'Classes/channel_flutter/ChannelFlutterHyperpay.swift', 'Classes/presentation/HyperPayAutoDetectBrandPromaticallyViewController.swift'
   s.dependency 'Flutter'
 
 

@@ -107,6 +107,28 @@ end
 
 ```
 
+5- set schema url , by editing file  info.plist :
+
+* replace <<com.example.app>> with your bundle id then append with <<.payment>>
+
+``` 
+	<key>CFBundleURLTypes</key>
+	<array> 
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.example.myapp.payment</string>
+			</array>
+		</dict>
+	</array>
+```
+* use this value "com.example.myapp.payment" to be set in
+```
+    var channelRequest = HyperpayChannelRequest ( );
+    channelRequest.shopperResultUrl =   "com.example.myapp.payment";
+```
 
 ### APPLEPAY :
 

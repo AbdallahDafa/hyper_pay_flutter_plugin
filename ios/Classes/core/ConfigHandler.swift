@@ -44,6 +44,15 @@ class ConfigHandler {
     }
     
     
+
+    static func setTypeTestAutoDetectBrand( checkoutID : String , amount : Double    ){
+        Config.oPPProviderMode = OPPProviderMode.test;
+        Config.checkoutID = checkoutID;
+        Config.amount = amount;
+        Config.paymentButtonBrand = "auto";
+    }
+
+
     //------------------------------------------------------------------------- enviroment live
     
     static func setTypeLiveApplePay( checkoutID : String , amount : Double    ){

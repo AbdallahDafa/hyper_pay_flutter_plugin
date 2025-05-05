@@ -14,19 +14,19 @@ class Config: NSObject {
     nonisolated(unsafe) static var oPPProviderMode = OPPProviderMode.test
     nonisolated(unsafe) static var checkoutID = "";
     
-    nonisolated(unsafe) static var merchantId = "merchant.com.tuxedo.dafa"
+    nonisolated(unsafe) static var merchantId =   ""; //example: merchant.com.tuxedo.dafa"
     nonisolated(unsafe) static var countryCode = "SA";
     /// get from socket
  
     
     // MARK: - The default amount and currency that are used for all payments
     nonisolated(unsafe) static var amount: Double = 1
-    nonisolated(unsafe) static var currency: String = "SAR" //"EUR"
+    nonisolated(unsafe) static var currency: String = "SAR" //"EUR" or "SAR"
  
     
     
     // MARK: - The payment brands for Ready-to-use UI
-//    static var checkoutPaymentBrands = [ "VISA", "MASTER", "MADA"   ]
+    nonisolated(unsafe) static var checkoutPaymentBrands = [ "VISA", "MASTER", "MADA"   ]
     nonisolated(unsafe) static let supportedNetwork = [ PKPaymentNetwork.init("VISA") , PKPaymentNetwork.init("MASTER") , PKPaymentNetwork.init("MADA")  ]
     
     // MARK: - The default payment brand for Payment Button
@@ -34,7 +34,7 @@ class Config: NSObject {
     
      
     // MARK: - shopperResultUrl
-    nonisolated(unsafe)static var urlScheme =  "com.tuxedo.dafa.payment"
+    nonisolated(unsafe)static var urlScheme =  "" ; //example "com.tuxedo.dafa.payment"
  
     
     

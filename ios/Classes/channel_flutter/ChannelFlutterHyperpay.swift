@@ -168,8 +168,13 @@ extension HyperPayPlugin {
             return ;
         }
  
-        // setter conifg
-        _setterConfigHyperPay();
+        // setter config
+        if( HyperPayResultData.request.brandName == "auto") {
+            _setterConfigHyperPayTypeAutoDetectBrand();
+        } else {
+            _setterConfigHyperPayTypeSingleBrand();
+        }
+
         
         // validate issue in parse
         if( HyperPayResultData.request.checkoutId ==   "" ) {
@@ -177,14 +182,19 @@ extension HyperPayPlugin {
             return ;
         }
         
-  
-        openWithListener();
+
+      if( HyperPayResultData.request.brandName == "auto") {
+        openWithListenerAutoDetectBrand();
+      } else {
+        openWithListenerSingleBrand();
+      }
+
                 
     }
     
     
-    func _setterConfigHyperPay() {
-        print("abdo - hyperpay - _setterConfigHyperPay() - request before: \( HyperPayResultData.request.toDictionary() )");
+    func _setterConfigHyperPayTypeSingleBrand() {
+        print("abdo - hyperpay - _setterConfigHyperPayTypeSingleBrand() - request before: \( HyperPayResultData.request.toDictionary() )");
         Config.amount = HyperPayResultData.request.amount ;
         Config.merchantId = HyperPayResultData.request.merchantId;
         Config.urlScheme = HyperPayResultData.request.shopperResultUrl;
@@ -197,32 +207,65 @@ extension HyperPayPlugin {
         } else {
             Config.oPPProviderMode = OPPProviderMode.live;
         }
-        print("abdo - hyperpay - _setterConfigHyperPay() - Config.oPPProviderMode: \(Config.oPPProviderMode.rawValue)");
-        print("abdo - hyperpay - _setterConfigHyperPay() - Config.merchantId: \(Config.merchantId)");
-        print("abdo - hyperpay - _setterConfigHyperPay() - Config.checkoutID: \(Config.checkoutID)");
-        print("abdo - hyperpay - _setterConfigHyperPay() - Config.amount: \(Config.amount)");
-        print("abdo - hyperpay - _setterConfigHyperPay() - Config.urlScheme: \(Config.urlScheme)");
-        print("abdo - hyperpay - _setterConfigHyperPay() - Config.paymentButtonBrand: \(Config.paymentButtonBrand)");
+        print("abdo - hyperpay - _setterConfigHyperPayTypeSingleBrand() - Config.oPPProviderMode: \(Config.oPPProviderMode.rawValue)");
+        print("abdo - hyperpay - _setterConfigHyperPayTypeSingleBrand() - Config.merchantId: \(Config.merchantId)");
+        print("abdo - hyperpay - _setterConfigHyperPayTypeSingleBrand() - Config.checkoutID: \(Config.checkoutID)");
+        print("abdo - hyperpay - _setterConfigHyperPayTypeSingleBrand() - Config.amount: \(Config.amount)");
+        print("abdo - hyperpay - _setterConfigHyperPayTypeSingleBrand() - Config.urlScheme: \(Config.urlScheme)");
+        print("abdo - hyperpay - _setterConfigHyperPayTypeSingleBrand() - Config.paymentButtonBrand: \(Config.paymentButtonBrand)");
         
+    }
+
+
+    func _setterConfigHyperPayTypeAutoDetectBrand() {
+        print("abdo - hyperpay - _setterConfigHyperPayTypeAutoDetectBrand() - request before: \( HyperPayResultData.request.toDictionary() )");
+        Config.amount = HyperPayResultData.request.amount ;
+        Config.merchantId = HyperPayResultData.request.merchantId;
+        Config.urlScheme = HyperPayResultData.request.shopperResultUrl;
+        Config.paymentButtonBrand =   HyperPayResultData.request.brandName;
+        Config.checkoutID =  HyperPayResultData.request.checkoutId;
+
+        if( HyperPayResultData.request.isTest   ){
+            Config.oPPProviderMode = OPPProviderMode.test;
+        } else {
+            Config.oPPProviderMode = OPPProviderMode.live;
+        }
+        print("abdo - hyperpay - _setterConfigHyperPayTypeAutoDetectBrand() - Config.oPPProviderMode: \(Config.oPPProviderMode.rawValue)");
+        print("abdo - hyperpay - _setterConfigHyperPayTypeAutoDetectBrand() - Config.merchantId: \(Config.merchantId)");
+        print("abdo - hyperpay - _setterConfigHyperPayTypeAutoDetectBrand() - Config.checkoutID: \(Config.checkoutID)");
+        print("abdo - hyperpay - _setterConfigHyperPayTypeAutoDetectBrand() - Config.amount: \(Config.amount)");
+        print("abdo - hyperpay - _setterConfigHyperPayTypeAutoDetectBrand() - Config.urlScheme: \(Config.urlScheme)");
+        print("abdo - hyperpay - _setterConfigHyperPayTypeAutoDetectBrand() - Config.paymentButtonBrand: \(Config.paymentButtonBrand)");
+
     }
     
     
-    
-    func openWithListener(){
-        // ui
-//        let controller: FlutterViewController = window?.rootViewController as! FlutterViewController
-//        print("abdo - hyperpay - run (RouterHyperPay.open) by FlutterViewController: \( controller )");
+    func openWithListenerSingleBrand(){
         var vc = getTopViewController();
-        RouterHyperPay.open(selfVC:   vc!  , onStatusChanged:  { status in
+        RouterHyperPay.singleBrand(selfVC:   vc!  , onStatusChanged:  { status in
             if status {
-                print("abdo - hyperpay - openWithListener() - Payment success")
+                print("abdo - hyperpay - openWithListenerSingleBrand() - Payment success")
                 self.fireResultToFlutterSuccess();
             } else {
-                print("abdo - hyperpay - openWithListener() - Payment failed")
+                print("abdo - hyperpay - openWithListenerSingleBrand() - Payment failed")
                 self.fireResultToFlutterFailed();
             }
         });
     }
-    
-    
+
+
+   func openWithListenerAutoDetectBrand(){
+           var vc = getTopViewController();
+           RouterHyperPay.autoDetectBrand(selfVC:   vc!  , onStatusChanged:  { status in
+               if status {
+                   print("abdo - hyperpay - openWithListenerAutoDetectBrand() - Payment success")
+                   self.fireResultToFlutterSuccess();
+               } else {
+                   print("abdo - hyperpay - openWithListenerAutoDetectBrand() - Payment failed")
+                   self.fireResultToFlutterFailed();
+               }
+           });
+   }
+
+
 }
