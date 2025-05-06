@@ -246,7 +246,7 @@ pod install
 -----
 
 
-# Create Payment Type Apple Pay / Hyperpay :
+# Apple Pay / Hyperpay :
 
 
 ### First Config Apple Pay:
@@ -282,6 +282,9 @@ pod install
 
 * call your server side to check after completed payment, if this checkout id is completed and success charge money or not.
  
+### Video 
+
+[![ApplePay Live Video](screenshot/applepay/thumb.png)](screenshot/applepay/live.mp4)
 
 -----
 
