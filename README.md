@@ -284,7 +284,7 @@ pod install
  
 ### Video 
  
-<video width="300" controls poster="screenshot/applepay/thumb.png">
+<video width="310" height="551" controls poster="screenshot/applepay/thumb.png">
   <source src="screenshot/applepay/live.mp4" type="video/mp4" /> 
 </video>
 
