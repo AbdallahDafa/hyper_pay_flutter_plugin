@@ -283,10 +283,12 @@ pod install
 * call your server side to check after completed payment, if this checkout id is completed and success charge money or not.
  
 ### Video 
- 
-<video width="310" height="551" controls poster="screenshot/applepay/thumb.png">
-  <source src="screenshot/applepay/live.mp4" type="video/mp4" /> 
-</video>
+
+<a href="screenshot/applepay/live.mp4">
+  <img src="screenshot/applepay/thumb.png" alt="Watch the video" width="310" height="551">
+</a>
+
+the above video is live transactions
 
 -----
 
