@@ -224,18 +224,18 @@ pod install
 * Android Visa Screens :
 
 <div style="display: flex; gap: 10px;">
-  <img src="https://github.com/AbdallahDafa/hyper_pay_flutter_plugin/blob/main/screenshot/android-1.png?raw=true" alt="Image 1" width="200" />
-  <img src="https://github.com/AbdallahDafa/hyper_pay_flutter_plugin/blob/main/screenshot/android-2.png?raw=true" alt="Image 2" width="200" />
-  <img src="https://github.com/AbdallahDafa/hyper_pay_flutter_plugin/blob/main/screenshot/android-3.png?raw=true" alt="Image 3" width="200" />
+  <img src="https://raw.githubusercontent.com/AbdallahDafa/hyper_pay_flutter_plugin/refs/heads/main/screenshot/android-1.png" alt="Image 1" width="200" />
+  <img src="https://raw.githubusercontent.com/AbdallahDafa/hyper_pay_flutter_plugin/refs/heads/main/screenshot/android-2.png" alt="Image 2" width="200" />
+  <img src="https://raw.githubusercontent.com/AbdallahDafa/hyper_pay_flutter_plugin/refs/heads/main/screenshot/android-3.png" alt="Image 3" width="200" />
 </div>
 
 
 * IPhone Visa Screens :
 
 <div style="display: flex; gap: 10px;">
-  <img src="https://github.com/AbdallahDafa/hyper_pay_flutter_plugin/blob/main/screenshot/iphone-1.png?raw=true" alt="Image 1" width="200" />
-  <img src="https://github.com/AbdallahDafa/hyper_pay_flutter_plugin/blob/main/screenshot/iphone-2.png?raw=true" alt="Image 2" width="200" />
-  <img src="https://github.com/AbdallahDafa/hyper_pay_flutter_plugin/blob/main/screenshot/iphone-3.png?raw=true" alt="Image 3" width="200" />
+  <img src="https://raw.githubusercontent.com/AbdallahDafa/hyper_pay_flutter_plugin/refs/heads/main/screenshot/iphone-1.png" alt="Image 1" width="200" />
+  <img src="https://raw.githubusercontent.com/AbdallahDafa/hyper_pay_flutter_plugin/refs/heads/main/screenshot/iphone-2.png" alt="Image 2" width="200" />
+  <img src="https://raw.githubusercontent.com/AbdallahDafa/hyper_pay_flutter_plugin/refs/heads/main/screenshot/iphone-3.png" alt="Image 3" width="200" />
 </div>
  
 
@@ -318,7 +318,7 @@ SOFTWARE.
 <table>
   <tr>
     <td>
-      <img src="https://github.com/AbdallahDafa/hyper_pay_flutter_plugin/blob/main/screenshot/dev-abdallah.png?raw=true"  width="80"/>
+      <img src="https://raw.githubusercontent.com/AbdallahDafa/hyper_pay_flutter_plugin/refs/heads/main/screenshot/dev-abdallah.png"  width="80"/>
     </td>
     <td>
       <h3>Created by<br/>Developer Abdallah Mahmoud<br/>

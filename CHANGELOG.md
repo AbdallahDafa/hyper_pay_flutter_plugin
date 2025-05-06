@@ -1,4 +1,8 @@
-## 1.0.10
+## 1.0.11
+
+* update readme
+
+## 1.0.8
 
 * downgrade to use ios target min is 13.0 instead of 15.0
 * This downgrade of ios target, to fixing almost of plugin flutter is working on ios target 13, 
