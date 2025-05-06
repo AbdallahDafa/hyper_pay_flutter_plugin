@@ -160,16 +160,18 @@ pod install
 
 -----
 
-## Create Payment Type :  VISA/MASTER/MADA
+# Create Payment Type :  VISA/MASTER/MADA
 
 
-### First Step : Generate Checkout ID 
+## Step 1 : Generate Checkout ID 
 
 * First generate the checkout id from your server side, using your own ceradential you getted from Hyperpay support team
 
-### Second Step : Open UI Checkout Using Flutter Plugin
+## Step 2 : Open UI Checkout Using Flutter Plugin
 
-#### Payment Method : VISA/MASTER/MADA 
+* Payment Method : VISA/MASTER/MADA 
+
+### Choose Brand Type
 
 ##### Case : Auto Detect Brand Type:
 ```dart
@@ -214,7 +216,7 @@ pod install
 * Note: the above code will return the result in boolean type "isSuccess", when success that's means the payment completed without any failure,
   But Notice you must call your server side to check status of this checkoutID if the money payed or not.
  
-### Step Three : Check Status Of Payment 
+### Step 3 : Check Status Of Payment 
 
 * Checker By Your Server: Call your server side to check after completed payment in previous step, if this checkout id is completed and success charge money or not.
 
@@ -244,7 +246,7 @@ pod install
 -----
 
 
-## Create Payment Type Apple Pay / Hyperpay :
+# Create Payment Type Apple Pay / Hyperpay :
 
 
 ### First Config Apple Pay:
