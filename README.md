@@ -309,7 +309,7 @@ the above video is live transactions
       <img src="https://raw.githubusercontent.com/AbdallahDafa/hyper_pay_flutter_plugin/refs/heads/main/screenshot/company/logo_masarat.png"  width="80"/>
     </td>
     <td>
-      <h3>Dafa.sa <br/>
+      <h3>MASARAT<br/>
       <a href="https://www.linkedin.com/company/dafa-sa/">Linkedin</a><br/>
       <a href="https://masaratech.com/">Website</a></h3>
     </td>
@@ -329,7 +329,7 @@ the above video is live transactions
     <td>
       <h3>Teach Lead<br/>Elamir Mahmoud<br/>
       <a href="https://www.linkedin.com/in/elamir-mahmoud-b37029104/">Linkedin</a><br/>
-      at dafa company</h3>
+      at MASARAT company</h3>
     </td>
   </tr>
 
@@ -340,7 +340,7 @@ the above video is live transactions
     <td>
       <h3>Created by<br/>Abdallah Mahmoud<br/>
       <a href="https://www.linkedin.com/in/abdallah-android-app/">Linkedin</a><br/>
-      at dafa company</h3>
+      at MASARAT company</h3>
     </td>
   </tr>
 
@@ -351,7 +351,7 @@ the above video is live transactions
     <td>
       <h3>Backend by<br/>Hager Hamdy<br/>
       <a href="https://www.linkedin.com/in/hager-hamdy-8847a119b//">Linkedin</a><br/>
-      at dafa company</h3>
+      at MASARAT company</h3>
     </td>
   </tr>
 
@@ -362,7 +362,7 @@ the above video is live transactions
     <td>
       <h3>Tested by<br/>Samaa Hazem<br/>
       <a href="https://www.linkedin.com/in/samaa-hazem-mohamed-abdellatif/">Linkedin</a><br/>
-      at dafa company</h3>
+      at MASARAT company</h3>
     </td>
   </tr>
 
@@ -374,7 +374,7 @@ the above video is live transactions
     <td>
       <h3>Flutter Developer Integration<br/>Ahmed Moharam<br/>
       <a href="https://www.linkedin.com/in/ahmed-moharam-abuelyazeed">Linkedin</a><br/>
-      at dafa company</h3>
+      at MASARAT company</h3>
     </td>
   </tr>
 
@@ -405,12 +405,12 @@ This software is licensed, not sold. By downloading or using this software, you 
    - Modify, adapt, translate, reverse-engineer, decompile, or disassemble the software.
 
 3. Ownership
-   All rights, title, and interest in and to the software remain the exclusive property of Dafa SA.
+   All rights, title, and interest in and to the software remain the exclusive property of MASARAT.
 
 4. Termination
    This license is effective until terminated. It will terminate automatically without notice if you breach any of its terms. Upon termination, you must cease all use and delete all copies.
 
 5. No Warranty
-   This software is provided "as is", without warranty of any kind. Dafa SA shall not be liable for any damages resulting from its use.
+   This software is provided "as is", without warranty of any kind. MASARAT shall not be liable for any damages resulting from its use.
 
 ````
