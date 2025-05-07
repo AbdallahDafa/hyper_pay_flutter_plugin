@@ -323,12 +323,29 @@ SOFTWARE.
 ````
 
 # Developed By Team Company Dafa 
- 
-<a href="https://www.linkedin.com/company/dafa-sa/" >Linkedin Company Dafa.sa</a>
 
-* Team Member
- 
+## Company
+
+<img style="width: 100%;" src="https://raw.githubusercontent.com/AbdallahDafa/hyper_pay_flutter_plugin/refs/heads/main/screenshot/company/dafa_sa_cover.jpeg"  />
+
+
 <table style="background-color: #f0f0f0; border-collapse: collapse; width: 100%;" >
+
+  <tr style="background-color: #a9a9a9;" > 
+    <td >
+      <img src="https://raw.githubusercontent.com/AbdallahDafa/hyper_pay_flutter_plugin/refs/heads/main/screenshot/company/dafa_sa_logo.jpeg"  width="80"/>
+    </td>
+    <td>
+      <h3>Company <br/>Dafa.sa<br/>
+      <a href="https://www.linkedin.com/company/dafa-sa/">Linkedin</a> </h3>
+    </td>
+  </tr>
+</table>
+
+ 
+## Team Member
+ 
+<table style="background-color: #1B4354; border-collapse: collapse; " >
 
 
   <tr style="background-color: #a9a9a9;" > 
@@ -347,7 +364,7 @@ SOFTWARE.
       <img src="https://raw.githubusercontent.com/AbdallahDafa/hyper_pay_flutter_plugin/refs/heads/main/screenshot/dev-abdallah.png"  width="80"/>
     </td>
     <td>
-      <h3>Created by<br/>Developer Abdallah Mahmoud<br/>
+      <h3>Created by<br/>Abdallah Mahmoud<br/>
       <a href="https://www.linkedin.com/in/abdallah-android-app/">Linkedin</a><br/>
       at dafa company</h3>
     </td>
