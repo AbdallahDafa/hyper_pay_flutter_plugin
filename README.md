@@ -295,34 +295,7 @@ the above video is live transactions
 -----
 
 
-## MIT License
-
-````
-MIT License
-
-Copyright (c) 2025 Abdallah Mahmoud <abdallah.mahmoud.dev@gmail.com>
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-````
-
-# Developed By Company Dafa 
+# Developed By Company Dafa
 
 ## Company
 
@@ -342,9 +315,9 @@ SOFTWARE.
   </tr>
 </table>
 
- 
+
 ## Team Member
- 
+
 <table style="background-color: #1B4354; border-collapse: collapse; " >
 
 
@@ -406,4 +379,40 @@ SOFTWARE.
 
 
 </table>
- 
+
+
+-----
+
+-----
+
+
+## Dafa SA Proprietary Software License
+
+````
+Dafa SA Proprietary Software License
+
+Copyright © 2025 Dafa SA. All rights reserved.
+
+This software is licensed, not sold. By downloading or using this software, you agree to the following terms:
+
+1. Permitted Use
+   You are granted a non-exclusive, non-transferable, revocable license to download and use this software only in its original form for personal or internal business purposes.
+
+2. Restrictions
+   You may not, under any circumstance:
+   - Copy or reproduce any part of the software or its source code.
+   - Modify, adapt, translate, reverse-engineer, decompile, or disassemble the software.
+   - Distribute, sublicense, share, rent, lease, or resell the software.
+   - Use any part of the software in another product or service.
+
+3. Ownership
+   All rights, title, and interest in and to the software remain the exclusive property of Dafa SA.
+
+4. Termination
+   This license is effective until terminated. It will terminate automatically without notice if you breach any of its terms. Upon termination, you must cease all use and delete all copies.
+
+5. No Warranty
+   This software is provided "as is", without warranty of any kind. Dafa SA shall not be liable for any damages resulting from its use.
+
+
+````
