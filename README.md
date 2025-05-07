@@ -342,6 +342,17 @@ SOFTWARE.
 
   <tr>
     <td>
+      <img src="https://raw.githubusercontent.com/AbdallahDafa/hyper_pay_flutter_plugin/refs/heads/main/screenshot/dev-teachlead.png"  width="80"/>
+    </td>
+    <td>
+      <h3>Teach Lead<br/>Elamir Mahmoud<br/>
+      <a href="https://www.linkedin.com/in/elamir-mahmoud-b37029104/">Linkedin</a><br/>
+      at dafa company</h3>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
       <img src="https://avatars.githubusercontent.com/u/82514924?v=4"  width="80"/>
     </td>
     <td>
