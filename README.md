@@ -329,16 +329,7 @@ SOFTWARE.
 * Team Member
  
 <table>
-  <tr>
-    <td>
-      <img src="https://raw.githubusercontent.com/AbdallahDafa/hyper_pay_flutter_plugin/refs/heads/main/screenshot/dev-abdallah.png"  width="80"/>
-    </td>
-    <td>
-      <h3>Created by<br/>Developer Abdallah Mahmoud<br/>
-      <a href="https://www.linkedin.com/in/abdallah-android-app/">Linkedin</a><br/>
-      at dafa company</h3>
-    </td>
-  </tr>
+
 
   <tr>
     <td>
@@ -350,6 +341,18 @@ SOFTWARE.
       at dafa company</h3>
     </td>
   </tr>
+
+  <tr>
+    <td>
+      <img src="https://raw.githubusercontent.com/AbdallahDafa/hyper_pay_flutter_plugin/refs/heads/main/screenshot/dev-abdallah.png"  width="80"/>
+    </td>
+    <td>
+      <h3>Created by<br/>Developer Abdallah Mahmoud<br/>
+      <a href="https://www.linkedin.com/in/abdallah-android-app/">Linkedin</a><br/>
+      at dafa company</h3>
+    </td>
+  </tr>
+
 
   <tr>
     <td>
@@ -368,7 +371,7 @@ SOFTWARE.
       <img src="https://media.licdn.com/dms/image/v2/D4D03AQEaO9fHRQ4LVw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1699646337617?e=1752105600&v=beta&t=QaKTm_W6O59R9t-cZUCLmyp5b1cRs4fDvjGEaphFJC0"  width="80"/>
     </td>
     <td>
-      <h3>Flutter Developer Integration with <br/>Ahmed Moharam<br/>
+      <h3>Flutter Developer Integration<br/>Ahmed Moharam<br/>
       <a href="https://www.linkedin.com/in/ahmed-moharam-abuelyazeed">Linkedin</a><br/>
       at dafa company</h3>
     </td>
