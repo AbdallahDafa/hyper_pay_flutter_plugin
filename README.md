@@ -295,22 +295,23 @@ the above video is live transactions
 -----
 
 
-# Developed By Company Dafa
+# Developed By Company MASARAT
 
 ## Company
 
-<img style="width: 100%;" src="https://raw.githubusercontent.com/AbdallahDafa/hyper_pay_flutter_plugin/refs/heads/main/screenshot/company/dafa_sa_cover.jpeg"  />
+<img style="width: 100%;" src="https://raw.githubusercontent.com/AbdallahDafa/hyper_pay_flutter_plugin/refs/heads/main/screenshot/company/cover_masarat.png"  />
 
 
 <table style="background-color: #f0f0f0; border-collapse: collapse; width: 100%;" >
 
   <tr  > 
     <td >
-      <img src="https://raw.githubusercontent.com/AbdallahDafa/hyper_pay_flutter_plugin/refs/heads/main/screenshot/company/dafa_sa_logo.jpeg"  width="80"/>
+      <img src="https://raw.githubusercontent.com/AbdallahDafa/hyper_pay_flutter_plugin/refs/heads/main/screenshot/company/logo_masarat.png"  width="80"/>
     </td>
     <td>
-      <h3>Dafa.sa<br/>
-      <a href="https://www.linkedin.com/company/dafa-sa/">Linkedin</a></h3> 
+      <h3>Dafa.sa <br/>
+      <a href="https://www.linkedin.com/company/dafa-sa/">Linkedin</a><br/>
+      <a href="https://masaratech.com/">Website</a></h3>
     </td>
   </tr>
 </table>
@@ -386,12 +387,12 @@ the above video is live transactions
 -----
 
 
-## Dafa SA Proprietary Software License
+## MASARAT Proprietary Software License
 
 ````
-Dafa SA Proprietary Software License
+MASARAT Proprietary Software License
 
-Copyright © 2025 Dafa SA. All rights reserved.
+Copyright © 2025 MASARAT Company. All rights reserved.
 
 This software is licensed, not sold. By downloading or using this software, you agree to the following terms:
 
@@ -411,6 +412,5 @@ This software is licensed, not sold. By downloading or using this software, you 
 
 5. No Warranty
    This software is provided "as is", without warranty of any kind. Dafa SA shall not be liable for any damages resulting from its use.
-
 
 ````
