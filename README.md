@@ -402,8 +402,6 @@ This software is licensed, not sold. By downloading or using this software, you 
    You may not, under any circumstance:
    - Copy or reproduce any part of the software or its source code.
    - Modify, adapt, translate, reverse-engineer, decompile, or disassemble the software.
-   - Distribute, sublicense, share, rent, lease, or resell the software.
-   - Use any part of the software in another product or service.
 
 3. Ownership
    All rights, title, and interest in and to the software remain the exclusive property of Dafa SA.
