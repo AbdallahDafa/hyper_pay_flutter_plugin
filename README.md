@@ -284,7 +284,7 @@ pod install
  
 ### Video 
 
-<a href="https://www.dropbox.com/scl/fi/thw8sun80dtkg9kttqnhx/live_hyperpay_on_github_link_flutter_plugin.mp4?rlkey=he4eaoad69yai88z9o7orrf8f&dl=1">
+<a  style="width: 310; height=551"   href="https://www.dropbox.com/scl/fi/thw8sun80dtkg9kttqnhx/live_hyperpay_on_github_link_flutter_plugin.mp4?rlkey=he4eaoad69yai88z9o7orrf8f&dl=1">
   <img src="screenshot/applepay/thumb.png" alt="Watch the video" width="310" height="551">
 </a>
 
