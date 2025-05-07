@@ -322,7 +322,7 @@ SOFTWARE.
 
 ````
 
-# Developed By Team Company Dafa 
+# Developed By Company Dafa 
 
 ## Company
 
@@ -336,7 +336,7 @@ SOFTWARE.
       <img src="https://raw.githubusercontent.com/AbdallahDafa/hyper_pay_flutter_plugin/refs/heads/main/screenshot/company/dafa_sa_logo.jpeg"  width="80"/>
     </td>
     <td>
-      <h3>Company <br/>Dafa.sa<br/>
+      <h3>Dafa.sa</h3><br/>
       <a href="https://www.linkedin.com/company/dafa-sa/">Linkedin</a> </h3>
     </td>
   </tr>
