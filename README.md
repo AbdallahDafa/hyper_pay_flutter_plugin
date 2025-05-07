@@ -331,7 +331,7 @@ SOFTWARE.
 
 <table style="background-color: #f0f0f0; border-collapse: collapse; width: 100%;" >
 
-  <tr style="background-color: #a9a9a9;" > 
+  <tr  > 
     <td >
       <img src="https://raw.githubusercontent.com/AbdallahDafa/hyper_pay_flutter_plugin/refs/heads/main/screenshot/company/dafa_sa_logo.jpeg"  width="80"/>
     </td>
