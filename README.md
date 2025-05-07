@@ -328,11 +328,11 @@ SOFTWARE.
 
 * Team Member
  
-<table>
+<table style="background-color: #f0f0f0; border-collapse: collapse; width: 100%;" >
 
 
-  <tr>
-    <td>
+  <tr style="background-color: #a9a9a9;" > 
+    <td >
       <img src="https://raw.githubusercontent.com/AbdallahDafa/hyper_pay_flutter_plugin/refs/heads/main/screenshot/dev-teachlead.png"  width="80"/>
     </td>
     <td>
@@ -353,6 +353,16 @@ SOFTWARE.
     </td>
   </tr>
 
+  <tr style="background-color: #a9a9a9;" >
+    <td>
+            <img src="https://avatars.githubusercontent.com/u/82514924?v=4"  width="80"/>
+    </td>
+    <td>
+      <h3>Backend by<br/>Hager Hamdy<br/>
+      <a href="https://www.linkedin.com/in/hager-hamdy-8847a119b//">Linkedin</a><br/>
+      at dafa company</h3>
+    </td>
+  </tr>
 
   <tr>
     <td>
@@ -366,7 +376,7 @@ SOFTWARE.
   </tr>
 
 
-  <tr>
+  <tr style="background-color: #a9a9a9;"  >
     <td>
       <img src="https://media.licdn.com/dms/image/v2/D4D03AQEaO9fHRQ4LVw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1699646337617?e=1752105600&v=beta&t=QaKTm_W6O59R9t-cZUCLmyp5b1cRs4fDvjGEaphFJC0"  width="80"/>
     </td>
