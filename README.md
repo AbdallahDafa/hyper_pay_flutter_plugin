@@ -322,8 +322,12 @@ SOFTWARE.
 
 ````
 
-# Company Dafa.sa
+# Developed By Team Company Dafa 
+ 
+<a href="https://www.linkedin.com/company/dafa-sa/" >Linkedin Company Dafa.sa</a>
 
+* Team Member
+ 
 <table>
   <tr>
     <td>
@@ -331,9 +335,34 @@ SOFTWARE.
     </td>
     <td>
       <h3>Created by<br/>Developer Abdallah Mahmoud<br/>
-      <a href="mailto:abdallah.mahmoud.dev@gmail.com">abdallah.mahmoud.dev@gmail.com</a><br/>
+      <a href="https://www.linkedin.com/in/abdallah-android-app/">Linkedin</a><br/>
       at dafa company</h3>
     </td>
   </tr>
+
+  <tr>
+    <td>
+      <img src="https://raw.githubusercontent.com/AbdallahDafa/hyper_pay_flutter_plugin/refs/heads/main/screenshot/dev-abdallah.png"  width="80"/>
+    </td>
+    <td>
+      <h3>Tested by<br/>Samaa Hazem<br/>
+      <a href="https://www.linkedin.com/in/samaa-hazem-mohamed-abdellatif/">Linkedin</a><br/>
+      at dafa company</h3>
+    </td>
+  </tr>
+
+
+  <tr>
+    <td>
+      <img src="https://raw.githubusercontent.com/AbdallahDafa/hyper_pay_flutter_plugin/refs/heads/main/screenshot/dev-abdallah.png"  width="80"/>
+    </td>
+    <td>
+      <h3>Flutter Developer Integration with <br/>Ahmed Moharam<br/>
+      <a href="https://www.linkedin.com/in/ahmed-moharam-abuelyazeed">Linkedin</a><br/>
+      at dafa company</h3>
+    </td>
+  </tr>
+
+
 </table>
  
