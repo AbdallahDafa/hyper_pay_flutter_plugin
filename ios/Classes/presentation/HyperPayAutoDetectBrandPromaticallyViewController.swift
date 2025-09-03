@@ -102,7 +102,7 @@ class HyperPayAutoDetectBrandPromaticallyViewController: UIViewController, OPPCh
     
    
    func configureCheckoutProviderAutoDetectBrand(checkoutID: String) -> OPPCheckoutProvider? {
-       print("abdo - RootViewController - configureCheckoutProviderAutoDetectBrand");
+       print("abdo - RootViewController - configureCheckoutProviderAutoDetectBrand()");
        
        let provider = OPPPaymentProvider(mode: Config.oPPProviderMode )
        let checkoutSettings = OPPCheckoutSettings()

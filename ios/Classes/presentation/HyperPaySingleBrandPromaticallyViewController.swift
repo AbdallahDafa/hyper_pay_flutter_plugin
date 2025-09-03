@@ -129,7 +129,7 @@ class HyperPaySingleBrandPromaticallyViewController: UIViewController, OPPChecko
     
    
    func configureCheckoutProvider(checkoutID: String) -> OPPCheckoutProvider? {
-       print("abdo - RootViewController - configureCheckoutProvider");
+       print("abdo - RootViewController - configureCheckoutProvider()");
        
        let provider = OPPPaymentProvider(mode: Config.oPPProviderMode )
        let checkoutSettings = OPPCheckoutSettings()
@@ -139,9 +139,12 @@ class HyperPaySingleBrandPromaticallyViewController: UIViewController, OPPChecko
        paymentRequest.supportedNetworks =  Config.supportedNetwork // set up supported payment networks
        checkoutSettings.applePayPaymentRequest = paymentRequest
 
-       /// summary payment item
-       let amountDecimal =  NSDecimalNumber(value: Config.amount )
-       checkoutSettings.applePayPaymentRequest?.paymentSummaryItems = [PKPaymentSummaryItem.init( label:  Config.itemName, amount:  amountDecimal)];
+       /// summary payment item for apple only
+       if( Config.paymentButtonBrand == "APPLEPAY") {
+           let amountDecimal =  NSDecimalNumber(value: Config.amount )
+           checkoutSettings.applePayPaymentRequest?.paymentSummaryItems = [PKPaymentSummaryItem.init( label:  Config.itemName, amount:  amountDecimal)];
+           print("abdo - RootViewController - configureCheckoutProvider() - add summary item name");
+       }
 
        checkoutSettings.storePaymentDetails = .prompt
        return OPPCheckoutProvider.init(paymentProvider: provider, checkoutID: checkoutID, settings: checkoutSettings)
