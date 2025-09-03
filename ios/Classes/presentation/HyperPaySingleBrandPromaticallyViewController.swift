@@ -138,6 +138,11 @@ class HyperPaySingleBrandPromaticallyViewController: UIViewController, OPPChecko
         
        paymentRequest.supportedNetworks =  Config.supportedNetwork // set up supported payment networks
        checkoutSettings.applePayPaymentRequest = paymentRequest
+
+       /// summary payment item
+       let amountDecimal =  NSDecimalNumber(value: Config.amount )
+       checkoutSettings.applePayPaymentRequest?.paymentSummaryItems = [PKPaymentSummaryItem.init( label:  Config.itemName, amount:  amountDecimal)];
+
        checkoutSettings.storePaymentDetails = .prompt
        return OPPCheckoutProvider.init(paymentProvider: provider, checkoutID: checkoutID, settings: checkoutSettings)
    }

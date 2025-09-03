@@ -7,6 +7,7 @@ class HyperpayChannelRequest {
   bool isTest = true;
   double? amount;
   String? brandName;
+  String? itemName;
 
 
   Map<String, dynamic> toJson() {
@@ -17,7 +18,8 @@ class HyperpayChannelRequest {
       'isTest': isTest,
       'amount': amount,
       'brandName': _getBrandNameOrAutoDetect(),
-      "isMada" : isMada()
+      "isMada" : isMada(),
+      "itemName" : itemName,
     };
   }
 

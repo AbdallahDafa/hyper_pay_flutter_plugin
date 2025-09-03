@@ -75,7 +75,7 @@ class _MyAppState extends State<MyApp> {
 
 
             ///--------------------------- single Brand visa
-            ///
+
             SizedBox( height: 20 ,),
             GestureDetector(
               child:  Container(
@@ -86,6 +86,23 @@ class _MyAppState extends State<MyApp> {
               onTap: () async {
 
                 await singleBrandTypeVisa();
+
+              },
+            ),
+
+
+            ///--------------------------- single Brand Apple Pay
+
+            SizedBox( height: 20 ,),
+            GestureDetector(
+              child:  Container(
+                color: Colors.grey,
+                padding: EdgeInsets.all(10 ),
+                child: Text("Single Payment Button Apple Pay"),
+              ),
+              onTap: () async {
+
+                await singleBrandTypeApplePay();
 
               },
             ),
@@ -110,6 +127,7 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
+
   singleBrandTypeVisa() async {
     /// init request channel
     var channelRequest = HyperpayChannelRequest ( );
@@ -129,6 +147,28 @@ class _MyAppState extends State<MyApp> {
           });
         } );
 
+  }
+
+
+  singleBrandTypeApplePay() async {
+    /// init request channel
+    var channelRequest = HyperpayChannelRequest ( );
+    channelRequest.shopperResultUrl =   "com.tuxedo.dafa.payment";  //contact hyperpay support to get merchantId
+    channelRequest.merchantId =  "merchant.com.tuxedo.dafa";  //contact hyperpay support to get merchantId
+    channelRequest.brandName = "APPLEPAY";
+    channelRequest.checkoutId = "8C7BCE37C913866B2F61FD398A609678.prod01-vm-tx14"; //get from your server side
+    channelRequest.amount =  1;
+    channelRequest.isTest = false ; //false means it's live
+    channelRequest.itemName = "Tuxedo"; /// message about merchant product name
+
+    await HyperPayPayment.newPayment(
+        channelRequest : channelRequest,
+        onComplete: (bool isSuccess) {
+
+          setState(() {
+            isPaymentSuccess = isSuccess;
+          });
+        } );
   }
 
 

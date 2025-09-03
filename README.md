@@ -268,6 +268,7 @@ pod install
                 channelRequest.checkoutId = "**************"; //get from your server side 
                 channelRequest.amount =  1;
                 channelRequest.isTest = false ; //false means it's live
+                chanelRequest.itemName = "SUMMARY_ITEM_NAME"; //can also write your application name // required this value by ApplePAY
 
                 await HyperPayPayment.newPayment(channelRequest : channelRequest, onComplete: (bool isSuccess) {
 
@@ -277,6 +278,12 @@ pod install
 
                 } );
 ```
+
+* description about transaction written by :
+```
+chanelRequest.itemName = "SUMMARY_ITEM_NAME"; //can also write your application name // required this value by ApplePAY
+```
+
 
 ### Step Three : Check Status Of Payment
 

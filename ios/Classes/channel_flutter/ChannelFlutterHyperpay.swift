@@ -31,6 +31,7 @@ struct HyperPayChannelRequest: Codable {
     var amount: Double = 1;
     var brandName: String = "";
     var isMada: Bool = false;
+    var itemName : String = "";
 
     // Computed property or logic if needed
     func isMadaValue() -> Bool {
@@ -46,7 +47,8 @@ struct HyperPayChannelRequest: Codable {
             "isTest": isTest,
             "amount": amount,
             "brandName": brandName,
-            "isMada": isMadaValue()
+            "isMada": isMadaValue(),
+            "itemName" : itemName
         ]
     }
 }
@@ -200,6 +202,7 @@ extension HyperPayPlugin {
         Config.urlScheme = HyperPayResultData.request.shopperResultUrl;
         Config.paymentButtonBrand = HyperPayResultData.request.brandName;
         Config.checkoutID =  HyperPayResultData.request.checkoutId;
+        Config.itemName =  HyperPayResultData.request.itemName;
        // Config.checkoutID = "C85BC2FD70C8E77AEB97D7DD1F3401CF.uat01-vm-tx02";  static test
         
         if( HyperPayResultData.request.isTest   ){
@@ -213,7 +216,7 @@ extension HyperPayPlugin {
         print("abdo - hyperpay - _setterConfigHyperPayTypeSingleBrand() - Config.amount: \(Config.amount)");
         print("abdo - hyperpay - _setterConfigHyperPayTypeSingleBrand() - Config.urlScheme: \(Config.urlScheme)");
         print("abdo - hyperpay - _setterConfigHyperPayTypeSingleBrand() - Config.paymentButtonBrand: \(Config.paymentButtonBrand)");
-        
+        print("abdo - hyperpay - _setterConfigHyperPayTypeSingleBrand() - Config.itemName: \(Config.itemName)");
     }
 
 
