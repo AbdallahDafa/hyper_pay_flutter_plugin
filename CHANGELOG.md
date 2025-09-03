@@ -1,3 +1,7 @@
+## 1.0.18
+
+* in apple pay set new parameter at request named: chanelRequest.itemName = "SUMMARY_ITEM_NAME"  
+
 ## 1.0.17
 
 * update readme
