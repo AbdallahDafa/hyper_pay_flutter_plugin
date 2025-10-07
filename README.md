@@ -1,16 +1,6 @@
-# hyper_pay_flutter_plugin
-
-
-
------
-
------
-
-
 ## Documenation 
 
 [HyperPay Integration Guide](https://www.hyperpay.com/integration-guide/)
-
 
 -----
 
@@ -20,13 +10,13 @@
 
 ## Android Config
 
-* Add JitPack to your build.gradle (Project-level) line :
+1. Add JitPack to your build.gradle (Project-level) line :
 ```
  maven { url 'https://jitpack.io' } // important line
 ```
 
-* example 
-* 
+  
+2. gradle  
 ```groovy
 
 allprojects {
@@ -50,7 +40,35 @@ dependencyResolutionManagement {
 } 
 
 ```
- 
+
+4. AndroidManifest 
+
+* How to generate "SchemaUrl" :
+  replace <<com.example.app>> with your package id then append with <<.payment>>
+
+* Set schema URL in AndroidManifest file 
+```
+<activity
+            android:name=".MainActivity" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                <data android:scheme="com.yourpackagename.payment" />
+            </intent-filter>
+```
+
+* use this value "com.example.myapp.payment" to be set in
+```
+    var channelRequest = HyperpayChannelRequest ( );
+    channelRequest.shopperResultUrl =   "com.yourpacangename.payment";
+```
+
 -----
 
 -----
@@ -156,6 +174,12 @@ pod install
 
 * enable apple pay Capabilities and follow certificate 
 
+* create apple merchant id from apple console , then set at 
+```
+                var channelRequest = HyperpayChannelRequest ( ); 
+                channelRequest.merchantId =  "merchant.com.example.myapp";  
+```
+
 -----
 
 -----
@@ -177,9 +201,9 @@ pod install
 ```dart
                 /// init request channel
                 var channelRequest = HyperpayChannelRequest ( );
-                channelRequest.shopperResultUrl =   "com.example.myapp.payment";  //contact hyperpay support to get merchantId
+                channelRequest.shopperResultUrl =   "com.yourpackagename.payment";  //set schema url added in config ios/android see get start here at readme 
                 channelRequest.merchantId =  "merchant.com.example.myapp";  //contact hyperpay support to get merchantId 
-                channelRequest.checkoutId = "**************"; //get from your server side 
+                channelRequest.checkoutId = "**************"; //get from your server side will change in every new transaction 
                 channelRequest.amount =  1;
                 channelRequest.isTest = false ; //false means it's live
 
