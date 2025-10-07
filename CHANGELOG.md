@@ -1,5 +1,7 @@
 ## 1.0.19
 
+* update to working with flutter version 3.35.4
+
 * improve readme documentation
 
 ## 1.0.18
