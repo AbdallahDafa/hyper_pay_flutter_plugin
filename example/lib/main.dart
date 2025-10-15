@@ -1,13 +1,11 @@
+
 import 'package:flutter/material.dart';
 import 'dart:async';
-
 import 'package:flutter/services.dart';
-// import 'package:hyper_pay_payment/hyper_pay_native/model/request/hyperpay_channel_request.dart';
 import 'package:hyper_pay_payment/hyper_pay_payment.dart';
 import 'package:hyper_pay_payment/hyper_pay_payment_platform_interface.dart';
 
-// import 'package:hyper_pay/hyper_pay_native/model/request/hyperpay_channel_request.dart';
-// import 'package:hyper_pay/hyper_pay_platform_interface.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -21,177 +19,189 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
-  bool? isPaymentSuccess = null  ;
+  bool? isPaymentSuccess = null;
 
   String result = "";
+
+  String checkOutID = "9DCDE8903880F4BA214126F1E887CB4C.prod01-vm-tx18";
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false ,
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
+
         appBar: AppBar(
           title: const Text('Plugin example app'),
         ),
-        body: Center(
-          child:  Column(children: [
+        body:  SafeArea(
+            child: Center(
+              child: Column(
+                children: [
+                  ///--------------------------- check connection
 
-            ///--------------------------- check connection
+                  SizedBox(
+                    height: 20,
+                  ),
+                  GestureDetector(
+                    child: Container(
+                      color: Colors.grey,
+                      padding: EdgeInsets.all(10),
+                      child: Text("Check Connection Between Dart And Native"),
+                    ),
+                    onTap: () async {
+                      result = await HyperPayPayment.getPlatformVersion();
+                      setState(() {});
+                    },
+                  ),
 
-            SizedBox( height: 20 ,),
-            GestureDetector(
-              child:  Container(
-                color: Colors.grey,
-                padding: EdgeInsets.all(10 ),
-                child: Text("Check Connection Between Dart And Native"),
+                  ///--------------------------- Auto detect
+                  SizedBox(
+                    height: 20,
+                  ),
+                  GestureDetector(
+                    child: Container(
+                      color: Colors.grey,
+                      padding: EdgeInsets.all(10),
+                      child: Text("Ready Use UI Auto Detect Brand Type"),
+                    ),
+                    onTap: () async {
+                      await autoDetectBrandType();
+                    },
+                  ),
+
+                  ///--------------------------- single Brand visa
+
+                  SizedBox(
+                    height: 20,
+                  ),
+                  GestureDetector(
+                    child: Container(
+                      color: Colors.grey,
+                      padding: EdgeInsets.all(10),
+                      child: Text("Single Payment Button Visa Only"),
+                    ),
+                    onTap: () async {
+                      await singleBrandTypeVisa();
+                    },
+                  ),
+
+                  ///--------------------------- single Brand Apple Pay
+
+                  SizedBox(
+                    height: 20,
+                  ),
+                  GestureDetector(
+                    child: Container(
+                      color: Colors.grey,
+                      padding: EdgeInsets.all(10),
+                      child: Text("Single Payment Button Apple Pay"),
+                    ),
+                    onTap: () async {
+                      await singleBrandTypeApplePay();
+                    },
+                  ),
+
+                  ///----------------------------- result
+
+                  SizedBox(
+                    height: 20,
+                  ),
+
+                  /// result
+                  if (result != "")
+                    Text(
+                      result,
+                      style: TextStyle(color: Colors.blue),
+                    ),
+
+                  /// status
+                  if (isPaymentSuccess != null && isPaymentSuccess == true)
+                    Text(
+                      "Payment success, need to check status in your server side",
+                      style: TextStyle(color: Colors.green),
+                    ),
+                  if (isPaymentSuccess != null && isPaymentSuccess == false)
+                    Text(
+                      "Payment failed",
+                      style: TextStyle(color: Colors.red),
+                    )
+                ],
               ),
-              onTap: () async {
-
-
-                result = await HyperPayPayment.getPlatformVersion();
-                setState(()   {});
-
-              },
-            ),
-
-            ///--------------------------- Auto detect
-            SizedBox( height: 20 ,),
-            GestureDetector(
-              child:  Container(
-                color: Colors.grey,
-                padding: EdgeInsets.all(10 ),
-                child: Text("Ready Use UI Auto Detect Brand Type"),
-              ),
-              onTap: () async {
-
-                await autoDetectBrandType();
-
-              },
-            ),
-
-
-            ///--------------------------- single Brand visa
-
-            SizedBox( height: 20 ,),
-            GestureDetector(
-              child:  Container(
-                color: Colors.grey,
-                padding: EdgeInsets.all(10 ),
-                child: Text("Single Payment Button Visa Only"),
-              ),
-              onTap: () async {
-
-                await singleBrandTypeVisa();
-
-              },
-            ),
-
-
-            ///--------------------------- single Brand Apple Pay
-
-            SizedBox( height: 20 ,),
-            GestureDetector(
-              child:  Container(
-                color: Colors.grey,
-                padding: EdgeInsets.all(10 ),
-                child: Text("Single Payment Button Apple Pay"),
-              ),
-              onTap: () async {
-
-                await singleBrandTypeApplePay();
-
-              },
-            ),
-
-
-            ///----------------------------- result
-
-            SizedBox( height: 20 ,),
-            /// result
-            if(result !=  "" ) Text( result ,
-              style: TextStyle( color: Colors.blue),),
-
-            /// status
-            if( isPaymentSuccess != null && isPaymentSuccess == true )Text( "Payment success, need to check status in your server side" ,
-              style: TextStyle( color: Colors.green),),
-            if( isPaymentSuccess != null && isPaymentSuccess == false )Text( "Payment failed", style: TextStyle( color: Colors.red),)
-
-
-          ],),
+            )
         ),
       ),
     );
   }
 
-
   singleBrandTypeVisa() async {
     /// init request channel
-    var channelRequest = HyperpayChannelRequest ( );
-    channelRequest.shopperResultUrl =   "com.tuxedo.dafa.payment";  //contact hyperpay support to get merchantId
-    channelRequest.merchantId =  "merchant.com.tuxedo.dafa";  //contact hyperpay support to get merchantId
+    var channelRequest = HyperpayChannelRequest();
+    channelRequest.shopperResultUrl =
+        "com.tuxedo.dafa.payment"; //contact hyperpay support to get merchantId
+    channelRequest.merchantId =
+        "merchant.com.tuxedo.dafa"; //contact hyperpay support to get merchantId
     channelRequest.brandName = "VISA";
-    channelRequest.checkoutId = "B6C5B5F146CE4C32086E55EA69D7E8B5.prod02-vm-tx05"; //get from your server side
-    channelRequest.amount =  1;
-    channelRequest.isTest = false ; //false means it's live
+    channelRequest.checkoutId =
+        checkOutID; //"B6C5B5F146CE4C32086E55EA69D7E8B5.prod02-vm-tx05"; //get from your server side
+    channelRequest.amount = 1;
+    channelRequest.isTest = false; //false means it's live
 
     await HyperPayPayment.newPayment(
-        channelRequest : channelRequest,
+        channelRequest: channelRequest,
         onComplete: (bool isSuccess) {
-
           setState(() {
             isPaymentSuccess = isSuccess;
           });
-        } );
-
+        });
   }
-
 
   singleBrandTypeApplePay() async {
     /// init request channel
-    var channelRequest = HyperpayChannelRequest ( );
-    channelRequest.shopperResultUrl =   "com.tuxedo.dafa.payment";  //contact hyperpay support to get merchantId
-    channelRequest.merchantId =  "merchant.com.tuxedo.dafa";  //contact hyperpay support to get merchantId
+    var channelRequest = HyperpayChannelRequest();
+    channelRequest.shopperResultUrl =
+        "com.tuxedo.dafa.payment"; //contact hyperpay support to get merchantId
+    channelRequest.merchantId =
+        "merchant.com.tuxedo.dafa"; //contact hyperpay support to get merchantId
     channelRequest.brandName = "APPLEPAY";
-    channelRequest.checkoutId = "62C2A2C3FA0B7640F27E2E006654B2F7.prod01-vm-tx04"; //get from your server side
-    channelRequest.amount =  1;
-    channelRequest.isTest = false ; //false means it's live
-    channelRequest.itemName = "Tuxedo"; /// message about merchant product name
+    channelRequest.checkoutId =
+        checkOutID; //"62C2A2C3FA0B7640F27E2E006654B2F7.prod01-vm-tx04"; //get from your server side
+    channelRequest.amount = 1;
+    channelRequest.isTest = false; //false means it's live
+    channelRequest.itemName = "Tuxedo";
+
+    /// message about merchant product name
 
     await HyperPayPayment.newPayment(
-        channelRequest : channelRequest,
+        channelRequest: channelRequest,
         onComplete: (bool isSuccess) {
-
           setState(() {
             isPaymentSuccess = isSuccess;
           });
-        } );
+        });
   }
-
 
   autoDetectBrandType() async {
     /// init request channel
-    var channelRequest = HyperpayChannelRequest ( );
-    channelRequest.shopperResultUrl =   "com.tuxedo.dafa.payment";  //contact hyperpay support to get merchantId
-    channelRequest.merchantId =  "merchant.com.tuxedo.dafa";  //contact hyperpay support to get merchantId
-    channelRequest.checkoutId = "857123F6D25C1C5BE1D3811259A82D23.prod01-vm-tx12"; //get from your server side
-    channelRequest.amount =  1;
-    channelRequest.isTest = true ; //false means it's live
-    channelRequest.itemName =  "Tuxedo";
+    var channelRequest = HyperpayChannelRequest();
+    channelRequest.shopperResultUrl =
+        "com.tuxedo.dafa.payment"; //contact hyperpay support to get merchantId
+    channelRequest.merchantId =
+        "merchant.com.tuxedo.dafa"; //contact hyperpay support to get merchantId
+    channelRequest.checkoutId =
+        checkOutID; // "857123F6D25C1C5BE1D3811259A82D23.prod01-vm-tx12"; //get from your server side
+    channelRequest.amount = 1;
+    channelRequest.isTest = false; //false means it's live
+    channelRequest.itemName = "Tuxedo";
     await HyperPayPayment.newPayment(
-        channelRequest : channelRequest,
+        channelRequest: channelRequest,
         onComplete: (bool isSuccess) {
-
           setState(() {
             isPaymentSuccess = isSuccess;
           });
-        } );
-
+        });
   }
-
-
-
 }

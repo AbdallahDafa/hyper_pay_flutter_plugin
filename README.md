@@ -197,6 +197,22 @@ pod install
 
 ### Choose Brand Type
 
+#### Safe Area for your Scaffold widget 
+
+* example fixing UI issue on pixel 9 API 36 android device:
+```
+Scaffold(
+   appBar: AppBar(
+          title: const Text('Plugin example app'),
+        ),
+        body:  SafeArea(
+            child: Center(
+              child:  YourButtonPaymentExample(),
+            )
+        ),
+),
+```
+
 ##### Case : Auto Detect Brand Type:
 ```dart
                 /// init request channel
