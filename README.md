@@ -83,6 +83,12 @@ sudo gem install cocoapods
 ```
 
 2- cd flutter project/
+* delete derived data of xcode , by command :
+```
+rm -rf ~/Library/Developer/Xcode/DerivedData/*
+```
+
+* clean and get 
 ```
 
 flutter clean
@@ -129,6 +135,9 @@ end
 
 ```
 
+* uninstall app and reinstall again from xcode or flutter run
+
+
 5- set schema url , by editing file  info.plist :
 
 * replace <<com.example.app>> with your bundle id then append with <<.payment>>
@@ -173,6 +182,15 @@ pod install
 ### APPLEPAY  Config:
 
 * enable apple pay Capabilities and follow certificate 
+```
+1. create idenifier :
+https://developer.apple.com/account/resources/identifiers/list
+
+2. connect the identifier merchent id with certificate id :
+https://developer.apple.com/account/resources/certificates/list
+
+3. download certificate file to share with support hyperpay 
+```
 
 * create apple merchant id from apple console , then set at 
 ```
