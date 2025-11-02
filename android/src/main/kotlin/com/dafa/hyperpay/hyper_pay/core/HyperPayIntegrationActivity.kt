@@ -32,7 +32,7 @@ class HyperPayIntegrationActivity : AppCompatActivity() {
 
         /// from channel flutter get
         val request = intent.getSerializableExtra("hyperpayRequest") as? HyperpayFlutterRequest
-        Log.i("abdo hyperpay", "initHyperPay() - request: $request");
+        Log.i("abdo_hyperpay", "initHyperPay() - request: $request");
 
 //        var request = HyperpayFlutterRequest(
 //            "FB202236B99B04D7214D9CC7948582F5.uat01-vm-tx02",
@@ -45,7 +45,7 @@ class HyperPayIntegrationActivity : AppCompatActivity() {
             // show
             HyperpayFlutterChannelController.showCheckoutUI(    );
         } else {
-            Log.i("abdo hyperpay", "initHyperPay() - request is null ");
+            Log.i("abdo_hyperpay", "initHyperPay() - request is null ");
             HyperpayFlutterChannelController.fireToFlutterCompleteFailed();
         }
 

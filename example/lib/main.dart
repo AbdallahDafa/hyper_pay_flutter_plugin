@@ -23,7 +23,7 @@ class _MyAppState extends State<MyApp> {
 
   String result = "";
 
-  String checkOutID = "81B04C763CE71F5BBE7794D21B7F06DB.prod01-vm-tx08";
+  String checkOutID = "829962EF1D0A81764CA2A555E9C1C7DA.uat01-vm-tx04";
 
   @override
   Widget build(BuildContext context) {
@@ -147,7 +147,7 @@ class _MyAppState extends State<MyApp> {
         "merchant.com.tuxedo.dafa"; //contact hyperpay support to get merchantId
     channelRequest.brandName = "VISA";
     channelRequest.checkoutId =
-        checkOutID; //"B6C5B5F146CE4C32086E55EA69D7E8B5.prod02-vm-tx05"; //get from your server side
+        checkOutID;
     channelRequest.amount = 1;
     channelRequest.isTest = false; //false means it's live
 
@@ -165,14 +165,14 @@ class _MyAppState extends State<MyApp> {
     /// init request channel
     var channelRequest = HyperpayChannelRequest();
     channelRequest.shopperResultUrl =
-    "com.tuxedo.dafa.payment"; //contact hyperpay support to get merchantId
+    "com.dafa.souqEletara.payment"; //contact hyperpay support to get merchantId
     channelRequest.merchantId =
-    "merchant.com.tuxedo.dafa"; //contact hyperpay support to get merchantId
+    "merchant.com.dafa.eletara"; //contact hyperpay support to get merchantId
     channelRequest.brandName = "VISA";
     channelRequest.checkoutId =
-        checkOutID; //"B6C5B5F146CE4C32086E55EA69D7E8B5.prod02-vm-tx05"; //get from your server side
+        checkOutID;
     channelRequest.amount = 1;
-    channelRequest.isTest = false; //false means it's live
+    channelRequest.isTest = true ; //false means it's live
 
     await HyperPayPayment.newPayment(
         channelRequest: channelRequest,
@@ -192,7 +192,7 @@ class _MyAppState extends State<MyApp> {
         "merchant.com.tuxedo.dafa"; //contact hyperpay support to get merchantId
     channelRequest.brandName = "APPLEPAY";
     channelRequest.checkoutId =
-        checkOutID; //"62C2A2C3FA0B7640F27E2E006654B2F7.prod01-vm-tx04"; //get from your server side
+        checkOutID;
     channelRequest.amount = 1;
     channelRequest.isTest = false; //false means it's live
     channelRequest.itemName = "Etara";
@@ -216,7 +216,7 @@ class _MyAppState extends State<MyApp> {
     channelRequest.merchantId =
         "merchant.com.tuxedo.dafa"; //contact hyperpay support to get merchantId
     channelRequest.checkoutId =
-        checkOutID; // "857123F6D25C1C5BE1D3811259A82D23.prod01-vm-tx12"; //get from your server side
+        checkOutID;
     channelRequest.amount = 1;
     channelRequest.isTest = false; //false means it's live
     channelRequest.itemName = "Tuxedo";

@@ -33,11 +33,11 @@ object HyperpayFlutterChannelController {
         this.request = request;
         this.activityCompat = activityCompat;
 
+        /// set config - brand
         if( request.brandName == "auto") {
             setConfigByRequestInfoTypeAutoDetectBrandMethod();
         } else  {
             setConfigByRequestInfoTypeSingleBrandMethod();
-
         }
 
         setterActivityResult();
@@ -46,7 +46,7 @@ object HyperpayFlutterChannelController {
 
 
     fun fireToFlutterCompleteFailed(){
-        Log.i( "abdo hyperpay", "fireToFlutterCompleteFailed()")
+        Log.i( "abdo_hyperpay", "fireToFlutterCompleteFailed()")
         activityCompat.finish();
         /// TO-DO call channel flutter
         HyperPayPlugin.eventSink?.success("failed")
@@ -54,7 +54,7 @@ object HyperpayFlutterChannelController {
 
 
     fun fireToFlutterCompleteSuccessWhileNeedCheckStatus(){
-        Log.i( "abdo hyperpay", "fireToFlutterCompleteSuccessWhileNeedCheckStatus()")
+        Log.i( "abdo_hyperpay", "fireToFlutterCompleteSuccessWhileNeedCheckStatus()")
         activityCompat.finish();
         /// TO-DO call channel flutter
         HyperPayPlugin.eventSink?.success("success")
@@ -125,26 +125,26 @@ object HyperpayFlutterChannelController {
             checkoutSettings.setPaymentButtonBrand( Config.PAYMENT_BUTTON_BRAND )
         }
 
-        Log.i("abdo", "setupHyperpayFromDocs() - checkoutSettings:  " +  checkoutSettings  );
-        Log.i("abdo","getCreateCheckoutSettings() - checkoutId: " + Config.CHECKOUT_ID);
-        Log.i("abdo","getCreateCheckoutSettings() - setComponentName.ComponentName: " + activityCompat.packageName);
+        Log.i("abdo_hyperpay", "setupHyperpayFromDocs() - checkoutSettings:  " +  checkoutSettings  );
+        Log.i("abdo_hyperpay","getCreateCheckoutSettings() - checkoutId: " + Config.CHECKOUT_ID);
+        Log.i("abdo_hyperpay","getCreateCheckoutSettings() - setComponentName.ComponentName: " + activityCompat.packageName);
         return  checkoutSettings;
     }
 
 
 
     private fun handleCheckoutActivityResult(result: CheckoutActivityResult) {
-        Log.i("abdo", "handleCheckoutActivityResult() - describeContents: ${result.describeContents()}")
-        Log.i("abdo", "handleCheckoutActivityResult() - isErrored: ${result.isErrored }")
-        Log.i("abdo", "handleCheckoutActivityResult() - isCanceled: ${result.isCanceled }")
-        Log.i("abdo", "handleCheckoutActivityResult() - paymentError: ${result.paymentError}")
-        Log.i("abdo", "handleCheckoutActivityResult() - transaction: ${result.transaction}")
-        Log.i("abdo", "handleCheckoutActivityResult() - transaction.describeContents: ${result.transaction?.describeContents()}")
-        Log.i("abdo", "handleCheckoutActivityResult() - transaction.paymentParams.shopperResultUrl: ${result.transaction?.paymentParams?.shopperResultUrl}")
-        Log.i("abdo", "handleCheckoutActivityResult() - transaction.paymentParams.paymentBrand: ${result.transaction?.paymentParams?.paymentBrand}")
-        Log.i("abdo", "handleCheckoutActivityResult() - transaction.paymentParams.checkoutId: ${result.transaction?.paymentParams?.checkoutId}")
-        Log.i("abdo", "handleCheckoutActivityResult() - transaction.transactionType: ${result.transaction?.transactionType}")
-        Log.i("abdo", "handleCheckoutActivityResult() - transaction.redirectUrl: ${result.transaction?.redirectUrl}")
+        Log.i("abdo_hyperpay", "handleCheckoutActivityResult() - describeContents: ${result.describeContents()}")
+        Log.i("abdo_hyperpay", "handleCheckoutActivityResult() - isErrored: ${result.isErrored }")
+        Log.i("abdo_hyperpay", "handleCheckoutActivityResult() - isCanceled: ${result.isCanceled }")
+        Log.i("abdo_hyperpay", "handleCheckoutActivityResult() - paymentError: ${result.paymentError}")
+        Log.i("abdo_hyperpay", "handleCheckoutActivityResult() - transaction: ${result.transaction}")
+        Log.i("abdo_hyperpay", "handleCheckoutActivityResult() - transaction.describeContents: ${result.transaction?.describeContents()}")
+        Log.i("abdo_hyperpay", "handleCheckoutActivityResult() - transaction.paymentParams.shopperResultUrl: ${result.transaction?.paymentParams?.shopperResultUrl}")
+        Log.i("abdo_hyperpay", "handleCheckoutActivityResult() - transaction.paymentParams.paymentBrand: ${result.transaction?.paymentParams?.paymentBrand}")
+        Log.i("abdo_hyperpay", "handleCheckoutActivityResult() - transaction.paymentParams.checkoutId: ${result.transaction?.paymentParams?.checkoutId}")
+        Log.i("abdo_hyperpay", "handleCheckoutActivityResult() - transaction.transactionType: ${result.transaction?.transactionType}")
+        Log.i("abdo_hyperpay", "handleCheckoutActivityResult() - transaction.redirectUrl: ${result.transaction?.redirectUrl}")
 
         /// case user click "Back button"
         if( result.isCanceled ) return fireToFlutterCompleteFailed();
