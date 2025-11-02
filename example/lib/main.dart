@@ -23,7 +23,7 @@ class _MyAppState extends State<MyApp> {
 
   String result = "";
 
-  String checkOutID = "F30799FD40277E972B9261E4195051C9.prod01-vm-tx14";
+  String checkOutID = "81B04C763CE71F5BBE7794D21B7F06DB.prod01-vm-tx08";
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +85,8 @@ class _MyAppState extends State<MyApp> {
                       child: Text("Single Payment Button Visa Only"),
                     ),
                     onTap: () async {
-                      await singleBrandTypeVisa();
+                      // await singleBrandTypeVisaTuxedo();
+                      await singleBrandTypeVisaAtera();
                     },
                   ),
 
@@ -137,13 +138,36 @@ class _MyAppState extends State<MyApp> {
     );
   }
 
-  singleBrandTypeVisa() async {
+  singleBrandTypeVisaTuxedo() async {
     /// init request channel
     var channelRequest = HyperpayChannelRequest();
     channelRequest.shopperResultUrl =
         "com.tuxedo.dafa.payment"; //contact hyperpay support to get merchantId
     channelRequest.merchantId =
         "merchant.com.tuxedo.dafa"; //contact hyperpay support to get merchantId
+    channelRequest.brandName = "VISA";
+    channelRequest.checkoutId =
+        checkOutID; //"B6C5B5F146CE4C32086E55EA69D7E8B5.prod02-vm-tx05"; //get from your server side
+    channelRequest.amount = 1;
+    channelRequest.isTest = false; //false means it's live
+
+    await HyperPayPayment.newPayment(
+        channelRequest: channelRequest,
+        onComplete: (bool isSuccess) {
+          setState(() {
+            isPaymentSuccess = isSuccess;
+          });
+        });
+  }
+
+
+  singleBrandTypeVisaAtera() async {
+    /// init request channel
+    var channelRequest = HyperpayChannelRequest();
+    channelRequest.shopperResultUrl =
+    "com.tuxedo.dafa.payment"; //contact hyperpay support to get merchantId
+    channelRequest.merchantId =
+    "merchant.com.tuxedo.dafa"; //contact hyperpay support to get merchantId
     channelRequest.brandName = "VISA";
     channelRequest.checkoutId =
         checkOutID; //"B6C5B5F146CE4C32086E55EA69D7E8B5.prod02-vm-tx05"; //get from your server side
@@ -171,7 +195,7 @@ class _MyAppState extends State<MyApp> {
         checkOutID; //"62C2A2C3FA0B7640F27E2E006654B2F7.prod01-vm-tx04"; //get from your server side
     channelRequest.amount = 1;
     channelRequest.isTest = false; //false means it's live
-    channelRequest.itemName = "Tuxedo";
+    channelRequest.itemName = "Etara";
 
     /// message about merchant product name
 

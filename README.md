@@ -215,6 +215,21 @@ https://developer.apple.com/account/resources/certificates/list
 
 ### Choose Brand Type
 
+#### Visa Test
+
+##### Hyperpay Test card visa
+* Notice this test card working only at "test" environment
+```
+nmumber
+4111111111111111
+
+mmyy
+12/27
+
+csv
+123
+```
+
 #### Safe Area for your Scaffold widget 
 
 * example fixing UI issue on pixel 9 API 36 android device:
